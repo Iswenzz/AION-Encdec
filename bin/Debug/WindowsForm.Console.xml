@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WindowsForm.Console</name>
+    </assembly>
+    <members>
+        <member name="T:WindowsForm.Console.Enums.ConsoleState">
+            <summary>
+            state controller of FConsole 
+            </summary>
+        </member>
+        <member name="T:WindowsForm.Console.Extensions.FConsoleExtensions">
+            <summary>
+            for easy access to properties of FConsole 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.Extensions.FConsoleExtensions.ReadKey(System.Windows.Forms.Form,System.Nullable{System.Drawing.Color})">
+            <summary>
+            extension of read key 
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:WindowsForm.Console.Extensions.FConsoleExtensions.ReadLine(System.Windows.Forms.Form)">
+            <summary>
+            extension of readline 
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:WindowsForm.Console.Extensions.FConsoleExtensions.WriteLine(System.Windows.Forms.Form,System.String,System.Nullable{System.Drawing.Color},System.Boolean)">
+            <summary>
+            extension of writeline function 
+            </summary>
+            <param name="f">
+            </param>
+            <param name="message">
+            </param>
+            <param name="color">
+            </param>
+            <param name="showTimeTag">
+            shows time on output 
+            </param>
+        </member>
+        <member name="M:WindowsForm.Console.Extensions.FConsoleExtensions.Write(System.Windows.Forms.Form,System.String,System.Nullable{System.Drawing.Color})">
+            <summary>
+            extension of write function 
+            </summary>
+            <param name="f">
+            </param>
+            <param name="message">
+            </param>
+            <param name="color">
+            </param>
+        </member>
+        <member name="M:WindowsForm.Console.Extensions.FConsoleExtensions.FindControlByType``1(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            finds all specific type of controls 
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="mainControl">
+            </param>
+            <param name="getAllChild">
+            search at child 
+            </param>
+            <returns>
+            </returns>
+            https://stackoverflow.com/questions/4630391/get-all-controls-of-a-specific-type
+        </member>
+        <member name="T:WindowsForm.Console.FConsole">
+            <summary>
+            new Console GUI 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.Arguments">
+            <summary>
+            parameters 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.HyperlinkColor">
+            <summary>
+            link color 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.State">
+            <summary>
+            states of console 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.SecureReadLine">
+            <summary>
+            after calling readline method sets ReadOnly= true (default:true) 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.AutoScrollToEndLine">
+            <summary>
+            auto scrolling to end when adds newLine (default:true) 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.Title">
+            <summary>
+            console title (not necessary :) ) 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.CurrentKey">
+            <summary>
+            catch one char from console 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.CurrentLine">
+            <summary>
+            catch all chars in line from console 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.recentlist">
+            <summary>
+            recent list of console 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.InputEnable">
+            <summary>
+            read mode checker 
+            </summary>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.Pause">
+            <summary>
+            console pause checker 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.InitializeFConsole">
+            <summary>
+            Initialize Console 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.FConsole_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            default console key events 
+            </summary>
+            <param name="sender">
+            </param>
+            <param name="e">
+            </param>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.MultiplePaste">
+            <summary>
+            mouse right click event 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.ReadKey(System.Nullable{System.Drawing.Color})">
+            <summary>
+            stop line 
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.ReadLine">
+            <summary>
+            read line 
+            </summary>
+            <returns>
+            </returns>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.SelectLastLine">
+            <summary>
+            last line gets 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.UpdateLine(System.Int32,System.String,System.Nullable{System.Drawing.Color})">
+            <summary>
+            updates selected line 
+            </summary>
+            <param name="line">
+            </param>
+            <param name="message">
+            </param>
+            <param name="color">
+            </param>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.Write(System.String,System.Nullable{System.Drawing.Color},System.Boolean)">
+            <summary>
+            write function 
+            </summary>
+            <param name="message">
+            </param>
+            <param name="color">
+            </param>
+            <param name="showTimeTag">
+            shows time on output 
+            </param>
+        </member>
+        <member name="P:WindowsForm.Console.FConsole.LastUsedColor">
+            <summary>
+            stored last used color on console 
+            </summary>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.WriteLine(System.String,System.Nullable{System.Drawing.Color},System.Boolean)">
+            <summary>
+            writeline function 
+            </summary>
+            <param name="message">
+            </param>
+            <param name="color">
+            </param>
+        </member>
+        <member name="M:WindowsForm.Console.FConsole.FConsole_LinkClicked(System.Object,System.Windows.Forms.LinkClickedEventArgs)">
+            <summary>
+            link click router 
+            </summary>
+            <param name="sender">
+            </param>
+            <param name="e">
+            </param>
+        </member>
+    </members>
+</doc>

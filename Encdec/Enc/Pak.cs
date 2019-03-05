@@ -11,7 +11,7 @@ namespace Iswenzz.AION.Encdec.Enc
         {
             Stopwatch timer = new Stopwatch();
             timer.Start();
-            string folder_name = folder.Replace("./PAK/", "");
+            string folder_name = Path.GetFileName(folder);
             Out.Log(Out.Level.Debug, "Repacking " + folder_name.ToUpper() + " PAK.");
 
             Proc.Start(Application.StartupPath + "\\bin\\7z.exe", "a -tZip ./recompiled_PAK/"

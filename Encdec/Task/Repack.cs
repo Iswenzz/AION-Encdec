@@ -10,7 +10,7 @@ namespace Iswenzz.AION.Encdec.Task
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            foreach (var folder in Directory.GetDirectories("./PAK/")) new Enc.Pak(folder);
+            foreach (var folder in Explorer.GetSelectedFolders()) new Enc.Pak(folder);
             SDK.Working = false;
         }
     }

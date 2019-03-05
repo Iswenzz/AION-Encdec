@@ -36,7 +36,7 @@
             this.fConsole1 = new WindowsForm.Console.FConsole();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ListBox = new System.Windows.Forms.CheckedListBox();
+            this.listBox = new System.Windows.Forms.CheckedListBox();
             this.flatButton4 = new Iswenzz.UI.FlatButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -149,7 +149,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.panel2.Controls.Add(this.ListBox);
+            this.panel2.Controls.Add(this.listBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(263, 0);
             this.panel2.Name = "panel2";
@@ -165,20 +165,21 @@
             this.panel3.Size = new System.Drawing.Size(937, 445);
             this.panel3.TabIndex = 12;
             // 
-            // ListBox
+            // listBox
             // 
-            this.ListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.ListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListBox.CheckOnClick = true;
-            this.ListBox.ColumnWidth = 370;
-            this.ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListBox.FormattingEnabled = true;
-            this.ListBox.HorizontalScrollbar = true;
-            this.ListBox.Location = new System.Drawing.Point(0, 0);
-            this.ListBox.MultiColumn = true;
-            this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(937, 130);
-            this.ListBox.TabIndex = 0;
+            this.listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.listBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox.CheckOnClick = true;
+            this.listBox.ColumnWidth = 370;
+            this.listBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox.FormattingEnabled = true;
+            this.listBox.HorizontalScrollbar = true;
+            this.listBox.Location = new System.Drawing.Point(0, 0);
+            this.listBox.MultiColumn = true;
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(937, 130);
+            this.listBox.TabIndex = 0;
+            this.listBox.ThreeDCheckBoxes = true;
             // 
             // flatButton4
             // 
@@ -230,9 +231,9 @@
         private UI.FlatButton flatButton1;
         private WindowsForm.Console.FConsole fConsole1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox ListBox;
         private System.Windows.Forms.Panel panel3;
         private UI.FlatButton flatButton4;
+        public System.Windows.Forms.CheckedListBox listBox;
     }
 }
 

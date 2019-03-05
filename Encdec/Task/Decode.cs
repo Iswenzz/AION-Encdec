@@ -11,12 +11,12 @@ namespace Iswenzz.AION.Encdec.Task
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            foreach (var folder in Directory.GetDirectories("./PAK/"))
+            foreach (var folder in Explorer.GetSelectedFolders())
             {
                 Stopwatch timer = new Stopwatch();
                 timer.Start();
 
-                string folder_name = folder.Replace("./PAK/", "");
+                string folder_name = Path.GetFileName(folder);
                 string[] folder_xml = Directory.GetFiles(folder, "*.xml", SearchOption.AllDirectories);
                 string[] folder_html = Directory.GetFiles(folder, "*.html", SearchOption.AllDirectories);
 

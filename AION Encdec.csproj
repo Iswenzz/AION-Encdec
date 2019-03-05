@@ -72,6 +72,7 @@
     <Compile Include="Encdec\Dec\Pak.cs" />
     <Compile Include="Encdec\Dec\Xml.cs" />
     <Compile Include="Encdec\Enc\Pak.cs" />
+    <Compile Include="Encdec\Explorer.cs" />
     <Compile Include="Encdec\Out.cs" />
     <Compile Include="Encdec\Proc.cs" />
     <Compile Include="Encdec\Task\Decode.cs" />

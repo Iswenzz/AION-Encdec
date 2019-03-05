@@ -11,8 +11,13 @@ namespace Iswenzz.AION.Encdec
         public Encdec()
         {
             InitializeComponent();
+
             CheckForIllegalCrossThreadCalls = false;
             Out.Console = fConsole1;
+
+            Thread refreshList = new Thread(() => Explorer.RefreshList());
+            refreshList.IsBackground = true;
+            refreshList.Start();
         }
 
         private void flatButton1_Click(object sender, EventArgs e)

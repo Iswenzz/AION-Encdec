@@ -12,7 +12,7 @@ namespace Iswenzz.AION.Encdec.Dec
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            string pak_name = Path.GetFileName(pak).Replace(".pak", "");
+            string pak_name = Path.GetFileNameWithoutExtension(pak);
             Out.Log(Out.Level.Debug, "Extracting " + pak.Replace("./PAK/", "").ToUpper());
 
             Proc.Start(Application.StartupPath + "\\bin\\pak2zip.exe", pak + " " + pak.Replace(".pak", ".zip"), false);

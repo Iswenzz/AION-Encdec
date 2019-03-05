@@ -77,11 +77,20 @@
     <Compile Include="Encdec\Task\Decode.cs" />
     <Compile Include="Encdec\Task\Extract.cs" />
     <Compile Include="Encdec\Task\Repack.cs" />
+    <Compile Include="PopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp.designer.cs">
+      <DependentUpon>PopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Encdec\SDK.cs" />
     <EmbeddedResource Include="Encdec.resx">
       <DependentUpon>Encdec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUp.resx">
+      <DependentUpon>PopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\iswenzz.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

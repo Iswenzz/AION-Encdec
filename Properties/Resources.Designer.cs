@@ -59,5 +59,15 @@ namespace Iswenzz.AION.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iswenzz {
+            get {
+                object obj = ResourceManager.GetObject("iswenzz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

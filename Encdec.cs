@@ -35,5 +35,11 @@ namespace Iswenzz.AION.Encdec
             SDK.Repack.IsBackground = true;
             SDK.Repack.Start();
         }
+
+        private void flatButton4_Click(object sender, EventArgs e)
+        {
+            PopUp popUp = new PopUp();
+            popUp.Show();
+        }
     }
 }

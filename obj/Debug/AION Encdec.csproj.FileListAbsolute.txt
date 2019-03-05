@@ -20,3 +20,26 @@ D:\Users\Wenzz\source\repos\Aion EU\AION SDK\bin\Debug\WindowsForm.Console.xml
 D:\Users\Wenzz\source\repos\Aion EU\AION SDK\obj\Debug\Iswenzz.AION.Encdec.Encdec.resources
 D:\Users\Wenzz\source\repos\Aion EU\AION SDK\bin\Debug\Iswenzz.UI.dll
 D:\Users\Wenzz\source\repos\Aion EU\AION SDK\bin\Debug\Iswenzz.UI.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Aion Encdec.exe.config
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Aion Encdec.exe
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Aion Encdec.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Iswenzz.UI.dll
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Newtonsoft.Json.dll
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\SXN.Core.dll
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\System.Windows.Forms.dll
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\WindowsForm.Console.dll
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Iswenzz.UI.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Newtonsoft.Json.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\Newtonsoft.Json.xml
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\SXN.Core.xml
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\WindowsForm.Console.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\bin\Debug\WindowsForm.Console.xml
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\AION Encdec.csprojAssemblyReference.cache
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\Iswenzz.AION.Encdec.Encdec.resources
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\Iswenzz.AION.Properties.Resources.resources
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\AION Encdec.csproj.GenerateResource.cache
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\AION Encdec.csproj.CoreCompileInputs.cache
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\AION Encdec.csproj.CopyComplete
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\Aion Encdec.exe
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\Aion Encdec.pdb
+D:\Users\Wenzz\source\repos\Aion EU\AION Encdec\obj\Debug\Iswenzz.AION.Encdec.PopUp.resources

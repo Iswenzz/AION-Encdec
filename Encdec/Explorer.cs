@@ -3,6 +3,7 @@ using System.Threading;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System;
 
 namespace Iswenzz.AION.Encdec
 {
@@ -27,14 +28,17 @@ namespace Iswenzz.AION.Encdec
         public static void RefreshList()
         {
             Thread.Sleep(2000);
-            CheckedListBox.ObjectCollection collection = (Application.OpenForms[0] as Encdec).listBox.Items;
+            
+            CheckedListBox listBox = (Application.OpenForms[0] as Encdec).listBox;
+            CheckedListBox.ObjectCollection collection = listBox.Items;
+
             while (true)
             {
                 if (collection.Count != Directory.GetFiles("./PAK/", "*.pak").Length)
                 {
-                    collection.Clear();
+                    listBox.Invoke(new Action(() => collection.Clear()));
                     IEnumerable<object> paks = Directory.GetFiles("./PAK/", "*.pak").Select(item => item.Replace("./PAK/", ""));
-                    collection.AddRange(paks.ToArray());
+                    listBox.Invoke(new Action(() => collection.AddRange(paks.ToArray())));
                 }
                 Thread.Sleep(1000);
             }

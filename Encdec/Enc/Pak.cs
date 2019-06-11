@@ -12,7 +12,7 @@ namespace Iswenzz.AION.Encdec.Enc
             Stopwatch timer = new Stopwatch();
             timer.Start();
             string folder_name = Path.GetFileName(folder);
-            Out.Log(Out.Level.Debug, "Repacking " + folder_name.ToUpper() + " PAK.");
+            Encdec.ConsoleInfo.LogWait(Level.Debug, "Repacking " + folder_name.ToUpper() + " PAK.");
 
             Proc.Start(Application.StartupPath + "\\bin\\7z.exe", "a -tZip ./recompiled_PAK/"
                 + folder_name + ".zip ./PAK/" + folder_name + "/*", false);
@@ -21,8 +21,8 @@ namespace Iswenzz.AION.Encdec.Enc
             File.Delete("./recompiled_PAK/" + folder_name + ".zip");
 
             timer.Stop();
-            Out.Log(Out.Level.Info, "Repacked " + folder_name.ToUpper() + " PAK in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
-            Out.Log(Out.Level.Debug, "");
+            Encdec.ConsoleInfo.LogWait(Level.Info, "Repacked " + folder_name.ToUpper() + " PAK in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
+            Encdec.ConsoleInfo.LogWait(Level.Debug, "");
         }
     }
 }

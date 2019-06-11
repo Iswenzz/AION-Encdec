@@ -20,14 +20,14 @@ namespace Iswenzz.AION.Encdec.Dec
 
             if (xml_exit == -1) // Already decoded
             {
-                Out.Log(Out.Level.Skipped, Path.GetFileName(xml));
+                Encdec.ConsoleInfo.LogWait(Level.Skipped, Path.GetFileName(xml));
                 return;
             }
 
             if (Proc.ExitError(xml_exit)) // Last try
                 xml_exit = Proc.Start(Application.StartupPath + "\\bin\\xml.exe", xml + " " + xml, false);
 
-            Out.Log(Proc.ExitError(xml_exit) ? Out.Level.Error : Out.Level.Verbose, Path.GetFileName(xml));
+            Encdec.ConsoleInfo.LogWait(Proc.ExitError(xml_exit) ? Level.Error : Level.Verbose, Path.GetFileName(xml));
         }
     }
 }

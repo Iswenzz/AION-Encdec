@@ -13,7 +13,7 @@ namespace Iswenzz.AION.Encdec.Dec
             timer.Start();
 
             string pak_name = Path.GetFileNameWithoutExtension(pak);
-            Out.Log(Out.Level.Debug, "Extracting " + pak.Replace("./PAK/", "").ToUpper());
+            Encdec.ConsoleInfo.LogWait(Level.Debug, "Extracting " + pak.Replace("./PAK/", "").ToUpper());
 
             Proc.Start(Application.StartupPath + "\\bin\\pak2zip.exe", pak + " " + pak.Replace(".pak", ".zip"), false);
             Proc.Start(Application.StartupPath + "\\bin\\7z.exe", "x \"" + Application.StartupPath + "\\PAK\\" +
@@ -22,8 +22,8 @@ namespace Iswenzz.AION.Encdec.Dec
 
             File.Delete("./PAK/" + pak_name + ".zip");
             timer.Stop();
-            Out.Log(Out.Level.Info, "Extracted " + pak.Replace("./PAK/", "").ToUpper() + " in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
-            Out.Log(Out.Level.Debug, "");
+            Encdec.ConsoleInfo.LogWait(Level.Info, "Extracted " + pak.Replace("./PAK/", "").ToUpper() + " in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
+            Encdec.ConsoleInfo.LogWait(Level.Debug, "");
         }
     }
 }

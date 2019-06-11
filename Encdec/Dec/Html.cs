@@ -20,10 +20,10 @@ namespace Iswenzz.AION.Encdec.Dec
 
             if (html_exit == -1)
             {
-                Out.Log(Out.Level.Skipped, Path.GetFileName(html));
+                Encdec.ConsoleInfo.LogWait(Level.Skipped, Path.GetFileName(html));
                 return;
             }
-            Out.Log(Proc.ExitError(html_exit) ? Out.Level.Error : Out.Level.Verbose, Path.GetFileName(html));
+            Encdec.ConsoleInfo.LogWait(Proc.ExitError(html_exit) ? Level.Error : Level.Verbose, Path.GetFileName(html));
         }
     }
 }

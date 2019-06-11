@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Windows.Forms;
+﻿using System.Threading.Tasks;
 
-namespace Iswenzz.AION.Encdec.Task
+namespace Iswenzz.AION.Encdec.Tasks
 {
     public static class Repack
     {
@@ -10,7 +8,7 @@ namespace Iswenzz.AION.Encdec.Task
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            foreach (var folder in Explorer.GetSelectedFolders()) new Enc.Pak(folder);
+            Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) => new Enc.Pak(folder));
             SDK.Working = false;
         }
     }

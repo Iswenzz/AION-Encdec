@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Windows.Forms;
+﻿using System;
+using System.Threading.Tasks;
 
-namespace Iswenzz.AION.Encdec.Task
+namespace Iswenzz.AION.Encdec.Tasks
 {
     public static class Extract
     {
@@ -10,7 +9,7 @@ namespace Iswenzz.AION.Encdec.Task
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            foreach (string pak in Explorer.GetSelectedPAKs()) new Dec.Pak(pak);
+            Parallel.ForEach(Explorer.GetSelectedPAKs(), (pak) => new Dec.Pak(pak));
             SDK.Working = false;
         }
     }

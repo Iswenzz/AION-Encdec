@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,20 +36,21 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConsoleControl, Version=1.2.1.0, Culture=neutral, PublicKeyToken=7edd23586f5e297f, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConsoleControl.1.2.1\lib\net40-client\ConsoleControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsoleControlAPI, Version=1.2.1.0, Culture=neutral, PublicKeyToken=7c86b8a36b9c33e2, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConsoleControlAPI.1.2.1\lib\net40\ConsoleControlAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Iswenzz.UI">
       <HintPath>..\..\VS\Extra Control\bin\Debug\Iswenzz.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.3.5.8\lib\35\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SXN.Core, Version=4.1.311.2, Culture=neutral, PublicKeyToken=d330946dddc91495, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.4.1.0311.2\lib\net451\SXN.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Forms.4.0.0.0\lib\System.Windows.Forms.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,9 +59,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsForm.Console, Version=1.9.30.1256, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsForm.Console.1.9.30.1256\lib\net461\WindowsForm.Console.dll</HintPath>
-    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encdec.cs">
@@ -71,13 +71,13 @@
     <Compile Include="Encdec\Dec\Html.cs" />
     <Compile Include="Encdec\Dec\Pak.cs" />
     <Compile Include="Encdec\Dec\Xml.cs" />
+    <Compile Include="Encdec\DOut.cs" />
     <Compile Include="Encdec\Enc\Pak.cs" />
     <Compile Include="Encdec\Explorer.cs" />
-    <Compile Include="Encdec\Out.cs" />
     <Compile Include="Encdec\Proc.cs" />
-    <Compile Include="Encdec\Task\Decode.cs" />
-    <Compile Include="Encdec\Task\Extract.cs" />
-    <Compile Include="Encdec\Task\Repack.cs" />
+    <Compile Include="Encdec\Tasks\Decode.cs" />
+    <Compile Include="Encdec\Tasks\Extract.cs" />
+    <Compile Include="Encdec\Tasks\Repack.cs" />
     <Compile Include="PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +119,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Console.ico" />
     <Content Include="favicon.ico" />
     <None Include="Resources\iswenzz.png" />
   </ItemGroup>

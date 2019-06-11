@@ -2,18 +2,18 @@
 using System.Threading;
 using System.Windows.Forms;
 
-using Iswenzz.AION.Encdec.Task;
+using Iswenzz.AION.Encdec.Tasks;
 
 namespace Iswenzz.AION.Encdec
 {
     public partial class Encdec : Form
     {
+        public static ConsoleControl.ConsoleControl ConsoleInfo;
+
         public Encdec()
         {
             InitializeComponent();
-
-            CheckForIllegalCrossThreadCalls = false;
-            Out.Console = fConsole1;
+            ConsoleInfo = Info;
 
             Thread refreshList = new Thread(() => Explorer.RefreshList());
             refreshList.IsBackground = true;

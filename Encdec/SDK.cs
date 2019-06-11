@@ -14,7 +14,7 @@ namespace Iswenzz.AION.Encdec
             if (Extract.IsAlive) Extract.Abort();
             if (Decode.IsAlive) Decode.Abort();
             if (Repack.IsAlive) Repack.Abort();
-            Out.Log(Out.Level.Info, "Terminating all threads.");
+            Encdec.ConsoleInfo.LogWait(Level.Info, "Terminating all threads.");
         }
     }
 }

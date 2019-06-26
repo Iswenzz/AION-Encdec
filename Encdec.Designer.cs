@@ -70,6 +70,9 @@
             this.flatButton4.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton4.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton4.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton4.Icon = null;
+            this.flatButton4.IconAutoPlacement = false;
+            this.flatButton4.IconSize = 0;
             this.flatButton4.Location = new System.Drawing.Point(0, 510);
             this.flatButton4.Name = "flatButton4";
             this.flatButton4.RoundedCorner = 0;
@@ -94,6 +97,9 @@
             this.flatButton3.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton3.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton3.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton3.Icon = null;
+            this.flatButton3.IconAutoPlacement = false;
+            this.flatButton3.IconSize = 0;
             this.flatButton3.Location = new System.Drawing.Point(0, 130);
             this.flatButton3.Name = "flatButton3";
             this.flatButton3.RoundedCorner = 0;
@@ -118,6 +124,9 @@
             this.flatButton2.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton2.Icon = null;
+            this.flatButton2.IconAutoPlacement = false;
+            this.flatButton2.IconSize = 0;
             this.flatButton2.Location = new System.Drawing.Point(0, 65);
             this.flatButton2.Name = "flatButton2";
             this.flatButton2.RoundedCorner = 0;
@@ -142,6 +151,9 @@
             this.flatButton1.HoverColorLeave = System.Drawing.Color.Empty;
             this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
             this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.flatButton1.Icon = null;
+            this.flatButton1.IconAutoPlacement = false;
+            this.flatButton1.IconSize = 0;
             this.flatButton1.Location = new System.Drawing.Point(0, 0);
             this.flatButton1.Name = "flatButton1";
             this.flatButton1.RoundedCorner = 0;
@@ -192,7 +204,7 @@
             this.Info.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Info.IsInputEnabled = false;
             this.Info.Location = new System.Drawing.Point(0, 0);
-            this.Info.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Info.Margin = new System.Windows.Forms.Padding(4);
             this.Info.Name = "Info";
             this.Info.SendKeyboardCommandsToProcess = false;
             this.Info.ShowDiagnostics = false;
@@ -211,7 +223,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Encdec";
-            this.Text = "Aion SDK";
+            this.Text = "Aion Encdec";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

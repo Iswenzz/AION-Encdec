@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Encdec));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flatButton4 = new Iswenzz.UI.FlatButton();
-            this.flatButton3 = new Iswenzz.UI.FlatButton();
-            this.flatButton2 = new Iswenzz.UI.FlatButton();
-            this.flatButton1 = new Iswenzz.UI.FlatButton();
+            this.flatButton4 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.flatButton3 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.flatButton2 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listBox = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,7 +58,6 @@
             // flatButton4
             // 
             this.flatButton4.Angles = 90;
-            this.flatButton4.AngleText = "";
             this.flatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.flatButton4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flatButton4.FlatAppearance.BorderSize = 0;
@@ -83,7 +82,6 @@
             // flatButton3
             // 
             this.flatButton3.Angles = 90;
-            this.flatButton3.AngleText = "";
             this.flatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.flatButton3.Dock = System.Windows.Forms.DockStyle.Top;
             this.flatButton3.FlatAppearance.BorderSize = 0;
@@ -108,7 +106,6 @@
             // flatButton2
             // 
             this.flatButton2.Angles = 90;
-            this.flatButton2.AngleText = "";
             this.flatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.flatButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flatButton2.FlatAppearance.BorderSize = 0;
@@ -133,7 +130,6 @@
             // flatButton1
             // 
             this.flatButton1.Angles = 90;
-            this.flatButton1.AngleText = "";
             this.flatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.flatButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flatButton1.FlatAppearance.BorderSize = 0;
@@ -225,12 +221,12 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private UI.FlatButton flatButton3;
-        private UI.FlatButton flatButton2;
-        private UI.FlatButton flatButton1;
+        private UI.Controls.Buttons.FlatButton flatButton3;
+        private UI.Controls.Buttons.FlatButton flatButton2;
+        private UI.Controls.Buttons.FlatButton flatButton1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private UI.FlatButton flatButton4;
+        private UI.Controls.Buttons.FlatButton flatButton4;
         public System.Windows.Forms.CheckedListBox listBox;
         private ConsoleControl.ConsoleControl Info;
     }

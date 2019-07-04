@@ -38,6 +38,7 @@
             this.listBox = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Info = new ConsoleControl.ConsoleControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -166,6 +167,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.listBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(257, 0);
@@ -211,6 +213,17 @@
             this.Info.Size = new System.Drawing.Size(943, 478);
             this.Info.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(814, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = ".PAK in PAK Folder";
+            // 
             // Encdec
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -226,6 +239,7 @@
             this.Text = "Aion Encdec";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -241,6 +255,7 @@
         private UI.Controls.Buttons.FlatButton flatButton4;
         public System.Windows.Forms.CheckedListBox listBox;
         private ConsoleControl.ConsoleControl Info;
+        private System.Windows.Forms.Label label1;
     }
 }
 

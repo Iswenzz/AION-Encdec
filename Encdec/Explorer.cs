@@ -32,6 +32,8 @@ namespace Iswenzz.AION.Encdec
             CheckedListBox listBox = (Application.OpenForms[0] as Encdec).listBox;
             CheckedListBox.ObjectCollection collection = listBox.Items;
 
+            Directory.CreateDirectory("./PAK/");
+
             while (true)
             {
                 if (collection.Count != Directory.GetFiles("./PAK/", "*.pak").Length)

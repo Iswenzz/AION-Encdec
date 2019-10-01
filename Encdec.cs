@@ -46,5 +46,22 @@ namespace Iswenzz.AION.Encdec
             PopUp popUp = new PopUp();
             popUp.Show();
         }
+
+        private void SelectAllButton_Click(object sender, EventArgs e)
+        {
+            switch (SelectAllButton.Text)
+            {
+                case "Select All":
+                    for (int i = 0; i < listBox.Items.Count; i++)
+                        listBox.SetItemChecked(i, true);
+                    SelectAllButton.Text = "Deselect All";
+                    break;
+                case "Deselect All":
+                    for (int i = 0; i < listBox.Items.Count; i++)
+                        listBox.SetItemChecked(i, false);
+                    SelectAllButton.Text = "Select All";
+                    break;
+            }
+        }
     }
 }

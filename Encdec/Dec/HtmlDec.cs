@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace Iswenzz.AION.Encdec.Dec
 {
-    public class Html
+    public class HtmlDec
     {
-        public Html(string html)
+        public HtmlDec(string html)
         {
-            int html_exit = Proc.Start(Application.StartupPath + "\\bin\\AIONdisasm.exe",
-                            "-r " + html + " " + html + "_tmp", false);
+            int html_exit = Proc.Start(Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe"),
+                "-r \"" + html + "\" \"" + html + "_tmp\"", false);
 
             if (!Proc.ExitError(html_exit))
             {

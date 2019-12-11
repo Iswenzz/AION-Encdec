@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace Iswenzz.AION.Encdec.Dec
 {
-    public class Xml
+    public class XmlDec
     {
-        public Xml(string xml)
+        public XmlDec(string xml)
         {
-            int xml_exit = Proc.Start(Application.StartupPath + "\\bin\\AIONdisasm.exe",
-                        xml + " " + xml + "_tmp", false);
+            int xml_exit = Proc.Start(Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe"),
+                "\"" + xml + "\" \"" + xml + "_tmp\"", false);
 
             if (!Proc.ExitError(xml_exit))
             {
@@ -23,9 +23,9 @@ namespace Iswenzz.AION.Encdec.Dec
                 Encdec.ConsoleInfo.LogWait(Level.Skipped, Path.GetFileName(xml));
                 return;
             }
-
             if (Proc.ExitError(xml_exit)) // Last try
-                xml_exit = Proc.Start(Application.StartupPath + "\\bin\\xml.exe", xml + " " + xml, false);
+                xml_exit = Proc.Start(Path.Combine(Application.StartupPath, "bin", "xml.exe"),
+                    "\"" + xml + "\" \"" + xml + "\"", false);
 
             Encdec.ConsoleInfo.LogWait(Proc.ExitError(xml_exit) ? Level.Error : Level.Verbose, Path.GetFileName(xml));
         }

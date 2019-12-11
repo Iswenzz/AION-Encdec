@@ -8,7 +8,8 @@ namespace Iswenzz.AION.Encdec
 {
     public partial class Encdec : Form
     {
-        public static ConsoleControl.ConsoleControl ConsoleInfo;
+        public static ConsoleControl.ConsoleControl ConsoleInfo { get; set; }
+        private PopUp PopUp { get; set; }
 
         public Encdec()
         {
@@ -43,8 +44,17 @@ namespace Iswenzz.AION.Encdec
 
         private void flatButton4_Click(object sender, EventArgs e)
         {
-            PopUp popUp = new PopUp();
-            popUp.Show();
+            if (PopUp == null)
+            {
+                PopUp = new PopUp();
+                PopUp.Show();
+            }
+            else if (PopUp != null && !PopUp.Visible)
+            {
+                PopUp.Dispose();
+                PopUp = new PopUp();
+                PopUp.Show();
+            }
         }
 
         private void SelectAllButton_Click(object sender, EventArgs e)
@@ -53,12 +63,14 @@ namespace Iswenzz.AION.Encdec
             {
                 case "Select All":
                     for (int i = 0; i < listBox.Items.Count; i++)
-                        listBox.SetItemChecked(i, true);
+                        if (!listBox.GetItemChecked(i))
+                            listBox.SetItemChecked(i, true);
                     SelectAllButton.Text = "Deselect All";
                     break;
                 case "Deselect All":
                     for (int i = 0; i < listBox.Items.Count; i++)
-                        listBox.SetItemChecked(i, false);
+                        if (listBox.GetItemChecked(i))
+                            listBox.SetItemChecked(i, false);
                     SelectAllButton.Text = "Select All";
                     break;
             }

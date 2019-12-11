@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Iswenzz.AION.Encdec.Enc;
+using System.Threading.Tasks;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
@@ -8,7 +9,7 @@ namespace Iswenzz.AION.Encdec.Tasks
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) => new Enc.Pak(folder));
+            Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) => new PakEnc(folder));
             SDK.Working = false;
         }
     }

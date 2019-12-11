@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Threading;
+﻿using System.Drawing;
 using System.Threading.Tasks;
 
 namespace Iswenzz.AION.Encdec
@@ -21,15 +19,15 @@ namespace Iswenzz.AION.Encdec
             Task.Factory.StartNew(() => Console.WriteInput(message + "\n", Color.WhiteSmoke, true));
 
         public static void Log(this ConsoleControl.ConsoleControl Console, Level level, string message = "") =>
-            Task.Factory.StartNew(() => Console.WriteInput(message + "\n", getColor(level), true));
+            Task.Factory.StartNew(() => Console.WriteInput(message + "\n", GetColor(level), true));
 
         public static void LogWait(this ConsoleControl.ConsoleControl Console, string message = "") =>
             Console.WriteInput(message + "\n", Color.WhiteSmoke, true);
 
         public static void LogWait(this ConsoleControl.ConsoleControl Console, Level level, string message = "") =>
-            Console.WriteInput(message + "\n", getColor(level), true);
+            Console.WriteInput(message + "\n", GetColor(level), true);
 
-        private static Color getColor(Level level)
+        private static Color GetColor(Level level)
         {
             switch (level)
             {

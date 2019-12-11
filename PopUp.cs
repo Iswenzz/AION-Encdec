@@ -18,10 +18,7 @@ namespace Iswenzz.AION.Encdec
             SetDesktopLocation(x + 410, y + 190);
         }
 
-        private void bunifuFlatButton4_Click(object sender, EventArgs e)
-        {
-            Hide();
-        }
+        private void bunifuFlatButton4_Click(object sender, EventArgs e) => Hide();
 
         int X, Y, isMoving;
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("https://iswenzz.com/");

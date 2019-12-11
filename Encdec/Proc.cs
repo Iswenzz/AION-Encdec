@@ -13,15 +13,14 @@ namespace Iswenzz.AION.Encdec
             proc.StartInfo.CreateNoWindow = true;
             proc.Start();
             proc.WaitForExit();
+
             int Exitcode = proc.ExitCode;
             proc.Close();
             proc.Dispose();
+
             return Exitcode;
         }
 
-        public static bool ExitError(int ErrorCode)
-        {
-            return ErrorCode == 0 ? false : true;
-        }
+        public static bool ExitError(int ErrorCode) => ErrorCode != 0;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Iswenzz.AION.Encdec.Dec;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -21,8 +22,8 @@ namespace Iswenzz.AION.Encdec.Tasks
 
                 Encdec.ConsoleInfo.LogWait(Level.Debug, "Decrypting " + folder_name.ToUpper() + " Folder.");
 
-                Parallel.ForEach(folder_xml, (xml) => new Dec.Xml(xml));
-                Parallel.ForEach(folder_html, (html) => new Dec.Html(html));
+                Parallel.ForEach(folder_xml, (xml) => new XmlDec(xml));
+                Parallel.ForEach(folder_html, (html) => new HtmlDec(html));
 
                 timer.Stop();
                 Encdec.ConsoleInfo.LogWait(Level.Info, "Decrypted " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");

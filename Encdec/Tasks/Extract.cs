@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Iswenzz.AION.Encdec.Dec;
 using System.Threading.Tasks;
 
 namespace Iswenzz.AION.Encdec.Tasks
@@ -9,7 +9,7 @@ namespace Iswenzz.AION.Encdec.Tasks
         {
             if (SDK.Working) return;
             SDK.Working = true;
-            Parallel.ForEach(Explorer.GetSelectedPAKs(), (pak) => new Dec.Pak(pak));
+            Parallel.ForEach(Explorer.GetSelectedPAKs(), (pak) => new PakDec(pak));
             SDK.Working = false;
         }
     }

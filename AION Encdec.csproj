@@ -77,11 +77,11 @@
     <Compile Include="Encdec.Designer.cs">
       <DependentUpon>Encdec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Encdec\Dec\Html.cs" />
-    <Compile Include="Encdec\Dec\Pak.cs" />
-    <Compile Include="Encdec\Dec\Xml.cs" />
+    <Compile Include="Encdec\Dec\HtmlDec.cs" />
+    <Compile Include="Encdec\Dec\PakDec.cs" />
+    <Compile Include="Encdec\Dec\XmlDec.cs" />
     <Compile Include="Encdec\DOut.cs" />
-    <Compile Include="Encdec\Enc\Pak.cs" />
+    <Compile Include="Encdec\Enc\PakEnc.cs" />
     <Compile Include="Encdec\Explorer.cs" />
     <Compile Include="Encdec\Proc.cs" />
     <Compile Include="Encdec\Tasks\Decode.cs" />

@@ -1,18 +1,32 @@
-﻿using Iswenzz.AION.Encdec.Dec;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
+
+using Iswenzz.AION.Encdec.Dec;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
-    public static class Decode
+    public class Decode : IDisposable
     {
-        public static void Init()
+        public Task Task { get; set; }
+        public CancellationToken CancellationToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+
+        public Decode()
         {
-            if (SDK.Working) return;
-            SDK.Working = true;
+            CancellationTokenSource = new CancellationTokenSource();
+            CancellationToken = CancellationTokenSource.Token;
+            Task = Task.Factory.StartNew(Init, CancellationToken);
+        }
+
+        public void Init()
+        {
+            SDK.SetWorking(true);
             foreach (var folder in Explorer.GetSelectedFolders())
             {
+                CancellationToken.ThrowIfCancellationRequested();
                 Stopwatch timer = new Stopwatch();
                 timer.Start();
 
@@ -22,14 +36,29 @@ namespace Iswenzz.AION.Encdec.Tasks
 
                 Encdec.ConsoleInfo.LogWait(Level.Debug, "Decrypting " + folder_name.ToUpper() + " Folder.");
 
-                Parallel.ForEach(folder_xml, (xml) => new XmlDec(xml));
-                Parallel.ForEach(folder_html, (html) => new HtmlDec(html));
+                Parallel.ForEach(folder_xml, (xml) =>
+                {
+                    CancellationToken.ThrowIfCancellationRequested();
+                    new XmlDec(xml);
+                });
+                Parallel.ForEach(folder_html, (html) =>
+                {
+                    CancellationToken.ThrowIfCancellationRequested();
+                    new HtmlDec(html);
+                });
 
                 timer.Stop();
                 Encdec.ConsoleInfo.LogWait(Level.Info, "Decrypted " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
                 Encdec.ConsoleInfo.LogWait(Level.Debug, "");
             }
-            SDK.Working = false;
+            SDK.SetWorking(false);
+        }
+
+        public void Dispose()
+        {
+            CancellationTokenSource?.Cancel();
+            CancellationTokenSource?.Dispose();
+            Task?.Dispose();
         }
     }
 }

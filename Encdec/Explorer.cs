@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System;
-using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Iswenzz.AION.Encdec
 {
@@ -26,9 +25,9 @@ namespace Iswenzz.AION.Encdec
             return list.ToArray();
         }
 
-        public static void RefreshList()
+        public static async Task RefreshList()
         {
-            Thread.Sleep(2000);
+            await Task.Delay(2000);
             
             CheckedListBox listBox = (Application.OpenForms[0] as Encdec).listBox;
             CheckedListBox.ObjectCollection collection = listBox.Items;
@@ -43,7 +42,7 @@ namespace Iswenzz.AION.Encdec
                         .Select(item => item.Replace(Program.Arguments.Input + "\\", ""));
                     listBox.Invoke(new Action(() => collection.AddRange(paks.ToArray())));
                 }
-                Thread.Sleep(1000);
+                await Task.Delay(1000);
             }
         }
     }

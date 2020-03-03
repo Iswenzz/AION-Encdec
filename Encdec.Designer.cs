@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Encdec));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flatButton4 = new Iswenzz.UI.Controls.Buttons.FlatButton();
-            this.flatButton3 = new Iswenzz.UI.Controls.Buttons.FlatButton();
-            this.flatButton2 = new Iswenzz.UI.Controls.Buttons.FlatButton();
-            this.flatButton1 = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.AboutButton = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.RepackButton = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.DecodeButton = new Iswenzz.UI.Controls.Buttons.FlatButton();
+            this.ExtractButton = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.listBox = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Info = new ConsoleControl.ConsoleControl();
             this.SelectAllButton = new Iswenzz.UI.Controls.Buttons.FlatButton();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -47,123 +47,123 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.flatButton4);
-            this.panel1.Controls.Add(this.flatButton3);
-            this.panel1.Controls.Add(this.flatButton2);
-            this.panel1.Controls.Add(this.flatButton1);
+            this.panel1.Controls.Add(this.AboutButton);
+            this.panel1.Controls.Add(this.RepackButton);
+            this.panel1.Controls.Add(this.DecodeButton);
+            this.panel1.Controls.Add(this.ExtractButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(257, 575);
             this.panel1.TabIndex = 10;
             // 
-            // flatButton4
+            // AboutButton
             // 
-            this.flatButton4.Angles = 90;
-            this.flatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.flatButton4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flatButton4.FlatAppearance.BorderSize = 0;
-            this.flatButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton4.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatButton4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.flatButton4.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton4.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton4.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton4.Icon = null;
-            this.flatButton4.IconAutoPlacement = false;
-            this.flatButton4.IconSize = 0;
-            this.flatButton4.Location = new System.Drawing.Point(0, 510);
-            this.flatButton4.Name = "flatButton4";
-            this.flatButton4.RoundedCorner = 0;
-            this.flatButton4.Size = new System.Drawing.Size(257, 65);
-            this.flatButton4.TabIndex = 3;
-            this.flatButton4.Text = "About";
-            this.flatButton4.UseVisualStyleBackColor = false;
-            this.flatButton4.Click += new System.EventHandler(this.flatButton4_Click);
+            this.AboutButton.Angles = 90;
+            this.AboutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.AboutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AboutButton.FlatAppearance.BorderSize = 0;
+            this.AboutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AboutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AboutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AboutButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AboutButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.AboutButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AboutButton.HoverColorLeave = System.Drawing.Color.Empty;
+            this.AboutButton.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.AboutButton.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.AboutButton.Icon = null;
+            this.AboutButton.IconAutoPlacement = false;
+            this.AboutButton.IconSize = 0;
+            this.AboutButton.Location = new System.Drawing.Point(0, 510);
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.RoundedCorner = 0;
+            this.AboutButton.Size = new System.Drawing.Size(257, 65);
+            this.AboutButton.TabIndex = 3;
+            this.AboutButton.Text = "About";
+            this.AboutButton.UseVisualStyleBackColor = false;
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
-            // flatButton3
+            // RepackButton
             // 
-            this.flatButton3.Angles = 90;
-            this.flatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.flatButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flatButton3.FlatAppearance.BorderSize = 0;
-            this.flatButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton3.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatButton3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.flatButton3.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton3.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton3.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton3.Icon = null;
-            this.flatButton3.IconAutoPlacement = false;
-            this.flatButton3.IconSize = 0;
-            this.flatButton3.Location = new System.Drawing.Point(0, 130);
-            this.flatButton3.Name = "flatButton3";
-            this.flatButton3.RoundedCorner = 0;
-            this.flatButton3.Size = new System.Drawing.Size(257, 65);
-            this.flatButton3.TabIndex = 2;
-            this.flatButton3.Text = "Repack PAK";
-            this.flatButton3.UseVisualStyleBackColor = false;
-            this.flatButton3.Click += new System.EventHandler(this.flatButton3_Click);
+            this.RepackButton.Angles = 90;
+            this.RepackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.RepackButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RepackButton.FlatAppearance.BorderSize = 0;
+            this.RepackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RepackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RepackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RepackButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepackButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.RepackButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RepackButton.HoverColorLeave = System.Drawing.Color.Empty;
+            this.RepackButton.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.RepackButton.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.RepackButton.Icon = null;
+            this.RepackButton.IconAutoPlacement = false;
+            this.RepackButton.IconSize = 0;
+            this.RepackButton.Location = new System.Drawing.Point(0, 130);
+            this.RepackButton.Name = "RepackButton";
+            this.RepackButton.RoundedCorner = 0;
+            this.RepackButton.Size = new System.Drawing.Size(257, 65);
+            this.RepackButton.TabIndex = 2;
+            this.RepackButton.Text = "Repack PAK";
+            this.RepackButton.UseVisualStyleBackColor = false;
+            this.RepackButton.Click += new System.EventHandler(this.RepackButton_Click);
             // 
-            // flatButton2
+            // DecodeButton
             // 
-            this.flatButton2.Angles = 90;
-            this.flatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.flatButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flatButton2.FlatAppearance.BorderSize = 0;
-            this.flatButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton2.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatButton2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.flatButton2.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton2.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton2.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton2.Icon = null;
-            this.flatButton2.IconAutoPlacement = false;
-            this.flatButton2.IconSize = 0;
-            this.flatButton2.Location = new System.Drawing.Point(0, 65);
-            this.flatButton2.Name = "flatButton2";
-            this.flatButton2.RoundedCorner = 0;
-            this.flatButton2.Size = new System.Drawing.Size(257, 65);
-            this.flatButton2.TabIndex = 1;
-            this.flatButton2.Text = "Decode Files";
-            this.flatButton2.UseVisualStyleBackColor = false;
-            this.flatButton2.Click += new System.EventHandler(this.flatButton2_Click);
+            this.DecodeButton.Angles = 90;
+            this.DecodeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.DecodeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DecodeButton.FlatAppearance.BorderSize = 0;
+            this.DecodeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.DecodeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.DecodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DecodeButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DecodeButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.DecodeButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DecodeButton.HoverColorLeave = System.Drawing.Color.Empty;
+            this.DecodeButton.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.DecodeButton.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.DecodeButton.Icon = null;
+            this.DecodeButton.IconAutoPlacement = false;
+            this.DecodeButton.IconSize = 0;
+            this.DecodeButton.Location = new System.Drawing.Point(0, 65);
+            this.DecodeButton.Name = "DecodeButton";
+            this.DecodeButton.RoundedCorner = 0;
+            this.DecodeButton.Size = new System.Drawing.Size(257, 65);
+            this.DecodeButton.TabIndex = 1;
+            this.DecodeButton.Text = "Decode Files";
+            this.DecodeButton.UseVisualStyleBackColor = false;
+            this.DecodeButton.Click += new System.EventHandler(this.DecodeButton_Click);
             // 
-            // flatButton1
+            // ExtractButton
             // 
-            this.flatButton1.Angles = 90;
-            this.flatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.flatButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flatButton1.FlatAppearance.BorderSize = 0;
-            this.flatButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.flatButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.flatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flatButton1.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flatButton1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.flatButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.flatButton1.HoverColorLeave = System.Drawing.Color.Empty;
-            this.flatButton1.HoverColorText = System.Drawing.Color.DarkOrange;
-            this.flatButton1.HoverColorTextLeave = System.Drawing.Color.Empty;
-            this.flatButton1.Icon = null;
-            this.flatButton1.IconAutoPlacement = false;
-            this.flatButton1.IconSize = 0;
-            this.flatButton1.Location = new System.Drawing.Point(0, 0);
-            this.flatButton1.Name = "flatButton1";
-            this.flatButton1.RoundedCorner = 0;
-            this.flatButton1.Size = new System.Drawing.Size(257, 65);
-            this.flatButton1.TabIndex = 0;
-            this.flatButton1.Text = "Extract PAK";
-            this.flatButton1.UseVisualStyleBackColor = false;
-            this.flatButton1.Click += new System.EventHandler(this.flatButton1_Click);
+            this.ExtractButton.Angles = 90;
+            this.ExtractButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ExtractButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ExtractButton.FlatAppearance.BorderSize = 0;
+            this.ExtractButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ExtractButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ExtractButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExtractButton.Font = new System.Drawing.Font("Corbel", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExtractButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ExtractButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ExtractButton.HoverColorLeave = System.Drawing.Color.Empty;
+            this.ExtractButton.HoverColorText = System.Drawing.Color.DarkOrange;
+            this.ExtractButton.HoverColorTextLeave = System.Drawing.Color.Empty;
+            this.ExtractButton.Icon = null;
+            this.ExtractButton.IconAutoPlacement = false;
+            this.ExtractButton.IconSize = 0;
+            this.ExtractButton.Location = new System.Drawing.Point(0, 0);
+            this.ExtractButton.Name = "ExtractButton";
+            this.ExtractButton.RoundedCorner = 0;
+            this.ExtractButton.Size = new System.Drawing.Size(257, 65);
+            this.ExtractButton.TabIndex = 0;
+            this.ExtractButton.Text = "Extract PAK";
+            this.ExtractButton.UseVisualStyleBackColor = false;
+            this.ExtractButton.Click += new System.EventHandler(this.ExtractButton_Click);
             // 
             // panel2
             // 
@@ -174,19 +174,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(943, 130);
             this.panel2.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Corbel", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(827, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = ".PAK in PAK Folder";
             // 
             // listBox
             // 
@@ -205,6 +192,19 @@
             this.listBox.Size = new System.Drawing.Size(943, 130);
             this.listBox.TabIndex = 0;
             this.listBox.ThreeDCheckBoxes = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Font = new System.Drawing.Font("Corbel", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(827, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = ".PAK in PAK Folder";
             // 
             // Info
             // 
@@ -281,11 +281,11 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private UI.Controls.Buttons.FlatButton flatButton3;
-        private UI.Controls.Buttons.FlatButton flatButton2;
-        private UI.Controls.Buttons.FlatButton flatButton1;
+        private UI.Controls.Buttons.FlatButton RepackButton;
+        private UI.Controls.Buttons.FlatButton DecodeButton;
+        private UI.Controls.Buttons.FlatButton ExtractButton;
         private System.Windows.Forms.Panel panel2;
-        private UI.Controls.Buttons.FlatButton flatButton4;
+        private UI.Controls.Buttons.FlatButton AboutButton;
         public System.Windows.Forms.CheckedListBox listBox;
         private System.Windows.Forms.Label label1;
         private ConsoleControl.ConsoleControl Info;

@@ -1,16 +1,40 @@
-﻿using Iswenzz.AION.Encdec.Enc;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
+
+using Iswenzz.AION.Encdec.Enc;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
-    public static class Repack
+    public class Repack : IDisposable
     {
-        public static void Init()
+        public Task Task { get; set; }
+        public CancellationToken CancellationToken { get; set; }
+        public CancellationTokenSource CancellationTokenSource { get; set; }
+
+        public Repack()
         {
-            if (SDK.Working) return;
-            SDK.Working = true;
-            Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) => new PakEnc(folder));
-            SDK.Working = false;
+            CancellationTokenSource = new CancellationTokenSource();
+            CancellationToken = CancellationTokenSource.Token;
+            Task = Task.Factory.StartNew(Init, CancellationToken);
+        }
+
+        public void Init()
+        {
+            SDK.SetWorking(true);
+            Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) =>
+            {
+                CancellationToken.ThrowIfCancellationRequested();
+                new PakEnc(folder);
+            });
+            SDK.SetWorking(false);
+        }
+
+        public void Dispose()
+        {
+            CancellationTokenSource?.Cancel();
+            CancellationTokenSource?.Dispose();
+            Task?.Dispose();
         }
     }
 }

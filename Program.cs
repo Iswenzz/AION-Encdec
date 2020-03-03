@@ -45,6 +45,10 @@ namespace Iswenzz.AION.Encdec
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Encdec());
             }
+            else
+            {
+
+            }
         }
     }
 }

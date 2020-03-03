@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using Iswenzz.AION.Encdec.Tasks;
 
 namespace Iswenzz.AION.Encdec
 {
@@ -15,34 +13,19 @@ namespace Iswenzz.AION.Encdec
         {
             InitializeComponent();
             ConsoleInfo = Info;
-
-            Thread refreshList = new Thread(() => Explorer.RefreshList());
-            refreshList.IsBackground = true;
-            refreshList.Start();
+            Task.Factory.StartNew(Explorer.RefreshList);
         }
 
-        private void flatButton1_Click(object sender, EventArgs e)
-        {
-            SDK.Extract = new Thread(() => Extract.Init());
-            SDK.Extract.IsBackground = true;
-            SDK.Extract.Start();
-        }
+        private void ExtractButton_Click(object sender, EventArgs e) =>
+            SDK.InitExtraction();
 
-        private void flatButton2_Click(object sender, EventArgs e)
-        {
-            SDK.Decode = new Thread(() => Decode.Init());
-            SDK.Decode.IsBackground = true;
-            SDK.Decode.Start();
-        }
+        private void DecodeButton_Click(object sender, EventArgs e) =>
+            SDK.InitDecoding();
 
-        private void flatButton3_Click(object sender, EventArgs e)
-        {
-            SDK.Repack = new Thread(() => Repack.Init());
-            SDK.Repack.IsBackground = true;
-            SDK.Repack.Start();
-        }
+        private void RepackButton_Click(object sender, EventArgs e) =>
+            SDK.InitRepacking();
 
-        private void flatButton4_Click(object sender, EventArgs e)
+        private void AboutButton_Click(object sender, EventArgs e)
         {
             if (PopUp == null)
             {

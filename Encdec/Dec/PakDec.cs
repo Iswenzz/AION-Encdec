@@ -21,11 +21,11 @@ namespace Iswenzz.AION.Encdec.Dec
 
             // 7z
             Proc.Start(Path.Combine(Application.StartupPath, "bin", "7z.exe"),
-                "x \"" + Path.Combine(Application.StartupPath, "PAK", pak_name + ".zip") 
+                "x \"" + Path.Combine(Program.Arguments.Input, pak_name + ".zip") 
                 + "\"" + " -aos -o\"" + 
-                Path.Combine(Application.StartupPath, "PAK", pak_name) + "\" *.* -r", false);
+                Path.Combine(Program.Arguments.Input, pak_name) + "\" *.* -r", false);
 
-            File.Delete(Path.Combine(Application.StartupPath, "PAK", pak_name + ".zip"));
+            File.Delete(Path.Combine(Program.Arguments.Input, pak_name + ".zip"));
             timer.Stop();
             Encdec.ConsoleInfo.LogWait(Level.Info, "Extracted " + pak_name.ToUpper() + " in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
             Encdec.ConsoleInfo.LogWait(Level.Debug, "");

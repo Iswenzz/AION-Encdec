@@ -7,6 +7,9 @@ namespace Iswenzz.AION.Encdec
 {
     public static class Program
     {
+        /// <summary>
+        /// Command line arguments.
+        /// </summary>
         public sealed class Options
         {
             [Option('u', "unpack", Required = false,

@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace Iswenzz.AION.Encdec
 {
+    /// <summary>
+    /// Represent the input directory where pak files will be processed.
+    /// </summary>
     public static class Explorer
     {
+        /// <summary>
+        /// Get all selected folders from the input directory.
+        /// </summary>
+        /// <returns></returns>
         public static string[] GetSelectedFolders()
         {
             List<string> list = new List<string>();
@@ -17,6 +24,10 @@ namespace Iswenzz.AION.Encdec
             return list.ToArray();
         }
 
+        /// <summary>
+        /// Get all selected paks from the input directory.
+        /// </summary>
+        /// <returns></returns>
         public static string[] GetSelectedPAKs()
         {
             List<string> list = new List<string>();
@@ -25,6 +36,10 @@ namespace Iswenzz.AION.Encdec
             return list.ToArray();
         }
 
+        /// <summary>
+        /// Task to refresh listbox items.
+        /// </summary>
+        /// <returns></returns>
         public static async Task RefreshList()
         {
             await Task.Delay(2000);

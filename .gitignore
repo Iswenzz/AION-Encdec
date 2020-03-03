@@ -1,8 +1,9 @@
 
-bin/
+bin/Release
+
+bin/Debug
 
 obj/
-
 
 COVERAGE.sh
 

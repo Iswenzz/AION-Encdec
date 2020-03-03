@@ -29,7 +29,7 @@ namespace Iswenzz.AION.Encdec.Format
             timer.Start();
 
             string pak_name = Path.GetFileNameWithoutExtension(FilePath);
-            Encdec.ConsoleInfo.LogWait(Level.Debug, "Extracting " + pak_name.ToUpper());
+            Encdec.ConsoleInfo.LogWait(Level.Info, "{Extracting} " + pak_name.ToUpper());
 
             // PAK2ZIP
             Proc.Start(Path.Combine(Application.StartupPath, "bin", "pak2zip.exe"),
@@ -43,9 +43,8 @@ namespace Iswenzz.AION.Encdec.Format
 
             File.Delete(Path.Combine(Program.Arguments.Input, pak_name + ".zip"));
             timer.Stop();
-            Encdec.ConsoleInfo.LogWait(Level.Info, "Extracted " + pak_name.ToUpper() + " in " 
+            Encdec.ConsoleInfo.LogWait(Level.Info, "{Extracted} " + pak_name.ToUpper() + " in " 
                 + timer.Elapsed.ToString("ss\\.ff") + "s.");
-            Encdec.ConsoleInfo.LogWait(Level.Debug, "");
         }
 
         /// <summary>
@@ -56,7 +55,7 @@ namespace Iswenzz.AION.Encdec.Format
             Stopwatch timer = new Stopwatch();
             timer.Start();
             string folder_name = Path.GetFileName(FilePath);
-            Encdec.ConsoleInfo.LogWait(Level.Debug, "Repacking " + folder_name.ToUpper() + " PAK.");
+            Encdec.ConsoleInfo.LogWait(Level.Info, "{Repacking} " + folder_name.ToUpper() + " PAK.");
 
             // 7z
             Proc.Start(Path.Combine(Application.StartupPath, "bin", "7z.exe"), "a -tZip \""
@@ -71,9 +70,8 @@ namespace Iswenzz.AION.Encdec.Format
             File.Delete(Path.Combine(Application.StartupPath, Program.Arguments.Output, folder_name + ".zip"));
 
             timer.Stop();
-            Encdec.ConsoleInfo.LogWait(Level.Info, "Repacked " + folder_name.ToUpper() + " PAK in "
+            Encdec.ConsoleInfo.LogWait(Level.Info, "{Repacked} " + folder_name.ToUpper() + " PAK in "
                 + timer.Elapsed.ToString("ss\\.ff") + "s.");
-            Encdec.ConsoleInfo.LogWait(Level.Debug, "");
         }
     }
 }

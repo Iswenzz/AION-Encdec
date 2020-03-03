@@ -22,7 +22,8 @@ namespace Iswenzz.AION.Encdec
         /// <summary>
         /// Start a task to extract all selected paks.
         /// </summary>
-        public static void InitExtraction()
+        /// <param name="waitTask">Wait for the task to finish.</param>
+        public static void InitExtraction(bool waitTask = false)
         {
             if (IsWorking)
                 return;
@@ -30,13 +31,16 @@ namespace Iswenzz.AION.Encdec
             {
                 Extract?.Dispose();
                 Extract = new Extract();
+                if (waitTask)
+                    Extract.Task.Wait();
             }
         }
 
         /// <summary>
         /// Start a task to decode all selected paks.
         /// </summary>
-        public static void InitDecoding()
+        /// <param name="waitTask">Wait for the task to finish.</param>
+        public static void InitDecoding(bool waitTask = false)
         {
             if (IsWorking)
                 return;
@@ -44,13 +48,16 @@ namespace Iswenzz.AION.Encdec
             {
                 Decode?.Dispose();
                 Decode = new Decode();
+                if (waitTask)
+                    Decode.Task.Wait();
             }
         }
 
         /// <summary>
         /// Start a task to repack all selected paks.
         /// </summary>
-        public static void InitRepacking()
+        /// <param name="waitTask">Wait for the task to finish.</param>
+        public static void InitRepacking(bool waitTask = false)
         {
             if (IsWorking)
                 return;
@@ -58,6 +65,8 @@ namespace Iswenzz.AION.Encdec
             {
                 Repack?.Dispose();
                 Repack = new Repack();
+                if (waitTask)
+                    Repack.Task.Wait();
             }
         }
 
@@ -69,7 +78,7 @@ namespace Iswenzz.AION.Encdec
             if (!Extract.Task.IsCompleted) Extract.CancellationTokenSource.Cancel();
             if (!Decode.Task.IsCompleted) Decode.CancellationTokenSource.Cancel();
             if (!Repack.Task.IsCompleted) Repack.CancellationTokenSource.Cancel();
-            Encdec.ConsoleInfo.LogWait(Level.Info, "Terminating all threads.");
+            Encdec.ConsoleInfo.LogWait(Level.Warning, "Terminating all threads.");
         }
     }
 }

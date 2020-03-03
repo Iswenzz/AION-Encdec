@@ -43,7 +43,7 @@ namespace Iswenzz.AION.Encdec.Tasks
                 string[] folder_xml = Directory.GetFiles(folder, "*.xml", SearchOption.AllDirectories);
                 string[] folder_html = Directory.GetFiles(folder, "*.html", SearchOption.AllDirectories);
 
-                Encdec.ConsoleInfo.LogWait(Level.Debug, "Decrypting " + folder_name.ToUpper() + " Folder.");
+                Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypting} " + folder_name.ToUpper() + " Folder.");
 
                 Parallel.ForEach(folder_xml, (xml) =>
                 {
@@ -57,8 +57,7 @@ namespace Iswenzz.AION.Encdec.Tasks
                 });
 
                 timer.Stop();
-                Encdec.ConsoleInfo.LogWait(Level.Info, "Decrypted " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
-                Encdec.ConsoleInfo.LogWait(Level.Debug, "");
+                Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypted} " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
             }
             SDK.SetWorking(false);
         }

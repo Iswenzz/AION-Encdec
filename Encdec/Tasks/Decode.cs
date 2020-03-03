@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Iswenzz.AION.Encdec.Dec;
+using Iswenzz.AION.Encdec.Format;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
@@ -48,12 +48,12 @@ namespace Iswenzz.AION.Encdec.Tasks
                 Parallel.ForEach(folder_xml, (xml) =>
                 {
                     CancellationToken.ThrowIfCancellationRequested();
-                    new XmlDec(xml);
+                    new XML(xml).Decode();
                 });
                 Parallel.ForEach(folder_html, (html) =>
                 {
                     CancellationToken.ThrowIfCancellationRequested();
-                    new HtmlDec(html);
+                    new HTML(html).Decode();
                 });
 
                 timer.Stop();

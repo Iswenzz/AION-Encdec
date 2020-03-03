@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-using Iswenzz.AION.Encdec.Enc;
+using Iswenzz.AION.Encdec.Format;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
@@ -34,7 +34,7 @@ namespace Iswenzz.AION.Encdec.Tasks
             Parallel.ForEach(Explorer.GetSelectedFolders(), (folder) =>
             {
                 CancellationToken.ThrowIfCancellationRequested();
-                new PakEnc(folder);
+                new PAK(folder).Encode();
             });
             SDK.SetWorking(false);
         }

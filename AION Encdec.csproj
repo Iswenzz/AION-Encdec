@@ -80,12 +80,12 @@
     <Compile Include="Encdec.Designer.cs">
       <DependentUpon>Encdec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Encdec\Dec\HtmlDec.cs" />
-    <Compile Include="Encdec\Dec\PakDec.cs" />
-    <Compile Include="Encdec\Dec\XmlDec.cs" />
+    <Compile Include="Encdec\Format\HTML.cs" />
+    <Compile Include="Encdec\Format\PAK.cs" />
+    <Compile Include="Encdec\Format\XML.cs" />
     <Compile Include="Encdec\DOut.cs" />
-    <Compile Include="Encdec\Enc\PakEnc.cs" />
     <Compile Include="Encdec\Explorer.cs" />
+    <Compile Include="Encdec\Format\IConvertibleAsset.cs" />
     <Compile Include="Encdec\Proc.cs" />
     <Compile Include="Encdec\Tasks\Decode.cs" />
     <Compile Include="Encdec\Tasks\Extract.cs" />

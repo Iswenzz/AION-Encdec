@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-using Iswenzz.AION.Encdec.Dec;
+using Iswenzz.AION.Encdec.Format;
 
 namespace Iswenzz.AION.Encdec.Tasks
 {
@@ -34,7 +34,7 @@ namespace Iswenzz.AION.Encdec.Tasks
             Parallel.ForEach(Explorer.GetSelectedPAKs(), (pak) =>
             {
                 CancellationToken.ThrowIfCancellationRequested();
-                new PakDec(pak);
+                new PAK(pak).Decode();
             });
             SDK.SetWorking(false);
         }

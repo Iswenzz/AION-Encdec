@@ -7,5 +7,15 @@
 ![](https://i.imgur.com/iKu3JIG.png)
 
 Graphical User Interface for roxan & M. Soltys' command line softwares. 
-
 This software allows you to decode XML, HTML, or CFG files, and un-pack or re-pack PAK Files.
+
+## Command-Line
+```c
+  -u, --unpack    Unpack pak files at the specified input folder.
+  -d, --decode    Decode pak files at the specified input folder.
+  -r, --repack    Repack pak files at the specified output folder.
+  -o, --output    (Default: ./REPACK) The output folder path.
+  -i, --input     (Default: ./PAK) The input folder path.
+  --help          Display this help screen.
+  --version       Display version information.
+```

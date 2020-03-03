@@ -11,6 +11,7 @@ namespace Iswenzz.AION.Encdec
         public static Decode Decode { get; set; }
         public static Repack Repack { get; set; }
         public static bool IsWorking { get; set; }
+        public static bool IsUsingGUI { get; set; }
 
         /// <summary>
         /// Blocks other tasks from being called if the app is busy.

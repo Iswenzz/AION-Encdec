@@ -34,7 +34,7 @@ namespace Iswenzz.AION.Encdec
                 Console.ForegroundColor = GetConsoleColor(Level.Debug);
                 Console.WriteLine(message);
                 Console.ForegroundColor = GetConsoleColor(0);
-                console.WriteInput(message + "\n", GetGUIColor(Level.Debug), true);
+                console?.WriteInput(message + "\n", GetGUIColor(Level.Debug), true);
             });
         }
 
@@ -51,7 +51,7 @@ namespace Iswenzz.AION.Encdec
                 Console.ForegroundColor = GetConsoleColor(level);
                 Console.WriteLine(message);
                 Console.ForegroundColor = GetConsoleColor(0);
-                console.WriteInput(message + "\n", GetGUIColor(level), true);
+                console?.WriteInput(message + "\n", GetGUIColor(level), true);
             });
         }
 
@@ -65,7 +65,7 @@ namespace Iswenzz.AION.Encdec
             Console.ForegroundColor = GetConsoleColor(Level.Debug);
             Console.WriteLine(message);
             Console.ForegroundColor = GetConsoleColor(0);
-            console.WriteInput(message + "\n", GetGUIColor(Level.Debug), true);
+            console?.WriteInput(message + "\n", GetGUIColor(Level.Debug), true);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Iswenzz.AION.Encdec
             Console.ForegroundColor = GetConsoleColor(level);
             Console.WriteLine(message);
             Console.ForegroundColor = GetConsoleColor(0);
-            console.WriteInput(message + "\n", GetGUIColor(level), true);
+            console?.WriteInput(message + "\n", GetGUIColor(level), true);
         }
 
         /// <summary>

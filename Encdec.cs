@@ -18,6 +18,7 @@ namespace Iswenzz.AION.Encdec
         public Encdec()
         {
             InitializeComponent();
+            SDK.IsUsingGUI = true;
             ConsoleInfo = Info;
             Task.Factory.StartNew(Explorer.RefreshList);
         }

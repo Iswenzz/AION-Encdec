@@ -15,6 +15,9 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -90,8 +93,17 @@
     <Compile Include="Encdec\Explorer.cs" />
     <Compile Include="Encdec\Format\IConvertibleAsset.cs" />
     <Compile Include="Encdec\Proc.cs" />
+    <Compile Include="Encdec\Reader\EncryptedAionPakReader.cs" />
+    <Compile Include="Encdec\Reader\PakCentralDirEnd.cs" />
+    <Compile Include="Encdec\Reader\PakCentralDirFile.cs" />
+    <Compile Include="Encdec\Reader\PakConstants.cs" />
+    <Compile Include="Encdec\Reader\PakFileEntry.cs" />
+    <Compile Include="Encdec\Reader\PakReader.cs" />
+    <Compile Include="Encdec\Reader\PakReaderSlim.cs" />
+    <Compile Include="Encdec\Reader\PakUtil.cs" />
     <Compile Include="Encdec\Tasks\Decode.cs" />
     <Compile Include="Encdec\Tasks\Extract.cs" />
+    <Compile Include="Encdec\Tasks\GetFile.cs" />
     <Compile Include="Encdec\Tasks\Repack.cs" />
     <Compile Include="PopUp.cs">
       <SubType>Form</SubType>
@@ -136,6 +148,7 @@
     <Content Include="favicon.ico" />
     <None Include="Resources\iswenzz.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.3.5\build\Fody.targets" Condition="Exists('..\packages\Fody.3.3.5\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

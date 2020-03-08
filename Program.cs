@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using Iswenzz.AION.Encdec.Tasks;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -7,6 +8,8 @@ namespace Iswenzz.AION.Encdec
 {
     public static class Program
     {
+        public static Options Arguments { get; set; }
+
         /// <summary>
         /// Command line arguments.
         /// </summary>
@@ -27,9 +30,11 @@ namespace Iswenzz.AION.Encdec
             [Option('i', "input", Required = false, Default = "./PAK",
                 HelpText = "The input folder path.")]
             public string Input { get; set; }
+            [Option('g', "get", Required = false,
+                HelpText = "Get a specific file in the PAK file, and save to the input folder. " +
+                "(i.e: C:/aion/npcs.pak/monster.xml)")]
+            public string GetFilePath { get; set; }
         }
-
-        public static Options Arguments { get; set; }
 
         /// <summary>
         /// The main entry point for the application.
@@ -51,6 +56,11 @@ namespace Iswenzz.AION.Encdec
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Encdec());
+            }
+            else if (!string.IsNullOrEmpty(Arguments.GetFilePath))
+            {
+                using GetFile file = new GetFile(Arguments.GetFilePath);
+                file.Save(Path.Combine(Arguments.Input, file.FileName));
             }
             else
             {

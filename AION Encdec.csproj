@@ -68,6 +68,9 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -103,7 +106,7 @@
     <Compile Include="Encdec\Reader\PakUtil.cs" />
     <Compile Include="Encdec\Tasks\Decode.cs" />
     <Compile Include="Encdec\Tasks\Extract.cs" />
-    <Compile Include="Encdec\Tasks\GetFile.cs" />
+    <Compile Include="Encdec\Tasks\SingleExtract.cs" />
     <Compile Include="Encdec\Tasks\Repack.cs" />
     <Compile Include="PopUp.cs">
       <SubType>Form</SubType>

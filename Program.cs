@@ -32,7 +32,8 @@ namespace Iswenzz.AION.Encdec
             public string Input { get; set; }
             [Option('g', "get", Required = false,
                 HelpText = "Get a specific file in the PAK file, and save to the input folder. " +
-                "(i.e: C:/aion/npcs.pak/monster.xml)")]
+                "(i.e: C:/aion/npcs.pak/monster.xml)[get monster.xml] " +
+                "(i.e:C:/aion/npcs.pak/*monster*.*)[get all files containing monster]")]
             public string GetFilePath { get; set; }
         }
 
@@ -59,8 +60,7 @@ namespace Iswenzz.AION.Encdec
             }
             else if (!string.IsNullOrEmpty(Arguments.GetFilePath))
             {
-                using GetFile file = new GetFile(Arguments.GetFilePath);
-                file.Save(Path.Combine(Arguments.Input, file.FileName));
+                using SingleExtract file = new SingleExtract(Arguments.GetFilePath);
             }
             else
             {

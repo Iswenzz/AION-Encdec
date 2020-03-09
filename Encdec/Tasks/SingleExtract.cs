@@ -46,10 +46,20 @@ namespace Iswenzz.AION.Encdec.Tasks
                     Encdec.ConsoleInfo.LogWait(Level.Info, "{Extract} " + match.Value);
                     if (fileBytes != null)
                     {
-                        FileInfo f = new FileInfo(Path.Combine(
-                            Program.Arguments.Input, match.Value).Replace("/", "\\"));
+                        FileInfo f = new FileInfo(Path.Combine(Program.Arguments.Input,
+                            Path.GetFileNameWithoutExtension(pakFilePath),match.Value).Replace("/", "\\"));
                         f.Directory.Create();
-                        File.WriteAllBytes(f.FullName, fileBytes);
+                        if (!File.Exists(f.FullName))
+                            File.WriteAllBytes(f.FullName, fileBytes);
+                        else
+                        {
+                            int idx = 1;
+                            string newPath;
+                            while (File.Exists(newPath = Path.Combine(f.Directory.FullName, 
+                                Path.GetFileNameWithoutExtension(f.Name) + "_" + idx + f.Extension)))
+                                idx++;
+                            File.WriteAllBytes(newPath, fileBytes);
+                        }
                     }
                 }
             }
@@ -70,10 +80,20 @@ namespace Iswenzz.AION.Encdec.Tasks
             Encdec.ConsoleInfo.LogWait(Level.Info, "{Extract} " + fileMatch);
             if (fileBytes != null)
             {
-                FileInfo f = new FileInfo(Path.Combine(
-                            Program.Arguments.Input, fileMatch).Replace("/", "\\"));
+                FileInfo f = new FileInfo(Path.Combine(Program.Arguments.Input, 
+                    Path.GetFileNameWithoutExtension(pakFilePath), fileMatch).Replace("/", "\\"));
                 f.Directory.Create();
-                File.WriteAllBytes(f.FullName, fileBytes);
+                if (!File.Exists(f.FullName))
+                    File.WriteAllBytes(f.FullName, fileBytes);
+                else
+                {
+                    int idx = 1;
+                    string newPath;
+                    while (File.Exists(newPath = Path.Combine(f.Directory.FullName,
+                        Path.GetFileNameWithoutExtension(f.Name) + "_" + idx + f.Extension)))
+                        idx++;
+                    File.WriteAllBytes(newPath, fileBytes);
+                }
             }
         }
 

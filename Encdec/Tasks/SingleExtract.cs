@@ -33,20 +33,24 @@ namespace Iswenzz.AION.Encdec.Tasks
         {
             string pakFilePath = Regex.Match(fullpath, ".*.pak").Value;
             string fileMatch = Path.GetFileName(Regex.Replace(fullpath, ".*.pak", "").Trim()).Replace("*", ".*");
-            Console.WriteLine("Patern: " + fileMatch);
 
             PakReader?.Dispose();
             PakReader = new PakReader(pakFilePath);
 
             foreach (PakCentralDirFile file in PakReader.Files.Values)
             {
-                Match match = Regex.Match(file.filename, fileMatch);
+                Match match = Regex.Match(file.filename.ToLower(), fileMatch.ToLower());
                 if (match.Success)
                 {
-                    Console.WriteLine("Matched: " + match.Value);
                     byte[] fileBytes = PakReader.GetFile(match.Value);
+                    Encdec.ConsoleInfo.LogWait(Level.Info, "{Extract} " + match.Value);
                     if (fileBytes != null)
-                        File.WriteAllBytes(Path.Combine(Program.Arguments.Input, match.Value), fileBytes);
+                    {
+                        FileInfo f = new FileInfo(Path.Combine(
+                            Program.Arguments.Input, match.Value).Replace("/", "\\"));
+                        f.Directory.Create();
+                        File.WriteAllBytes(f.FullName, fileBytes);
+                    }
                 }
             }
         }
@@ -63,8 +67,14 @@ namespace Iswenzz.AION.Encdec.Tasks
             PakReader?.Dispose();
             PakReader = new PakReader(pakFilePath);
             byte[] fileBytes = PakReader.GetFile(fileMatch);
+            Encdec.ConsoleInfo.LogWait(Level.Info, "{Extract} " + fileMatch);
             if (fileBytes != null)
-                File.WriteAllBytes(Path.Combine(Program.Arguments.Input, fileMatch), fileBytes);
+            {
+                FileInfo f = new FileInfo(Path.Combine(
+                            Program.Arguments.Input, fileMatch).Replace("/", "\\"));
+                f.Directory.Create();
+                File.WriteAllBytes(f.FullName, fileBytes);
+            }
         }
 
         /// <summary>

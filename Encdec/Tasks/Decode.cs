@@ -45,16 +45,22 @@ namespace Iswenzz.AION.Encdec.Tasks
 
                 Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypting} " + folder_name.ToUpper() + " Folder.");
 
-                Parallel.ForEach(folder_xml, (xml) =>
+                if (folder_xml.Length > 0)
                 {
-                    CancellationToken.ThrowIfCancellationRequested();
-                    new XML(xml).Decode();
-                });
-                Parallel.ForEach(folder_html, (html) =>
+                    Parallel.ForEach(folder_xml, (xml) =>
+                    {
+                        CancellationToken.ThrowIfCancellationRequested();
+                        new XML(xml).Decode();
+                    });
+                }
+                if (folder_html.Length > 0)
                 {
-                    CancellationToken.ThrowIfCancellationRequested();
-                    new HTML(html).Decode();
-                });
+                    Parallel.ForEach(folder_html, (html) =>
+                    {
+                        CancellationToken.ThrowIfCancellationRequested();
+                        new HTML(html).Decode();
+                    });
+                }
 
                 timer.Stop();
                 Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypted} " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");

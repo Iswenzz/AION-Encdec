@@ -6,12 +6,6 @@
 
 This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some of the things this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
 
-## Features
-* Encode/Decode `.XML`, `.HTML`, and `.CFG` files.
-* Un-pack and re-pack `.PAK` files.
-* Graphical User Interface
-* Command Line Interface
-
 ![](https://i.imgur.com/iKu3JIG.png)
 
 ## Command-Line
@@ -24,3 +18,9 @@ This program serves as both a Graphical User Interface and Command Line Interfac
   --help          Display this help screen.
   --version       Display version information.
 ```
+
+## Features
+* Encode/Decode `.XML`, `.HTML`, and `.CFG` files.
+* Un-pack and re-pack `.PAK` files.
+* Graphical User Interface
+* Command Line Interface

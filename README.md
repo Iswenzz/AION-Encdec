@@ -4,7 +4,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/iswenzz/aion-encdec/badge)](https://www.codefactor.io/repository/github/iswenzz/aion-encdec)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some of the things this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
+This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some features this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
 
 ![](https://i.imgur.com/iKu3JIG.png)
 

@@ -8,7 +8,13 @@ This program serves as both a Graphical User Interface and Command Line Interfac
 
 ![](https://i.imgur.com/iKu3JIG.png)
 
-## Command-Line
+## Features
+* Encode/Decode `.XML`, `.HTML`, and `.CFG` files.
+* Un-pack and re-pack `.PAK` files.
+* Graphical User Interface
+* Command Line Interface
+
+## Command Line Interface
 ```c
   -u, --unpack    Unpack pak files at the specified input folder.
   -d, --decode    Decode pak files at the specified input folder.
@@ -19,8 +25,13 @@ This program serves as both a Graphical User Interface and Command Line Interfac
   --version       Display version information.
 ```
 
-## Features
-* Encode/Decode `.XML`, `.HTML`, and `.CFG` files.
-* Un-pack and re-pack `.PAK` files.
-* Graphical User Interface
-* Command Line Interface
+## Instructions
+In order to use this application, just download the archived file down below, and extract it to any destination. You can create a shortcut of the executable file and place it anywhere, and run it from said shortcut.
+
+## Building
+1. [Visual Studio](https://visualstudio.microsoft.com/)
+
+### [Download](https://github.com/Iswenzz/AION-Encdec/releases)
+
+## Contributors:
+***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code. Also feel free to post about any problems that may arise in the issues section of the repository.

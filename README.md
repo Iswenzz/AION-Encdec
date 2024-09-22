@@ -1,8 +1,9 @@
 # AION Encdec
-[![Build status](https://ci.appveyor.com/api/projects/status/u6aiu1hde2ca04u0?svg=true)](https://ci.appveyor.com/project/Iswenzz/aion-encdec)
-[![codecov](https://codecov.io/gh/Iswenzz/AION-Encdec/branch/master/graph/badge.svg)](https://codecov.io/gh/Iswenzz/AION-Encdec)
-[![CodeFactor](https://www.codefactor.io/repository/github/iswenzz/aion-encdec/badge)](https://www.codefactor.io/repository/github/iswenzz/aion-encdec)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+[![Checks](https://img.shields.io/github/check-runs/Iswenzz/AION-Encdec/master?logo=github)](https://github.com/Iswenzz/AION-Encdec/actions)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/AION-Encdec?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/AION-Encdec)
+[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/AION-Encdec?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/AION-Encdec)
+[![License](https://img.shields.io/github/license/Iswenzz/AION-Encdec?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/AION-Encdec/blob/master/LICENSE)
 
 This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some features this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
 

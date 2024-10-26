@@ -1,81 +1,45 @@
-﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 
-using Iswenzz.AION.Encdec.Format;
+using AION.Encdec.Formats;
+using AION.Encdec.Utils;
 
-namespace Iswenzz.AION.Encdec.Tasks
+namespace AION.Encdec.Tasks
 {
     /// <summary>
-    /// Represent the paks decoding task.
+    /// Decode PAK files.
     /// </summary>
-    public class Decode : IDisposable
+    public static class Decode
     {
-        public Task Task { get; set; }
-        public CancellationToken CancellationToken { get; set; }
-        public CancellationTokenSource CancellationTokenSource { get; set; }
-
         /// <summary>
-        /// Initialize a new <see cref="Decode"/> object and start the decoding task.
+        /// Start the unpack task.
         /// </summary>
-        public Decode()
+        public static void Run()
         {
-            CancellationTokenSource = new CancellationTokenSource();
-            CancellationToken = CancellationTokenSource.Token;
-            Task = Task.Factory.StartNew(Init, CancellationToken);
-        }
+            if (Program.IsWorking) return;
 
-        /// <summary>
-        /// Start the decoding task.
-        /// </summary>
-        public void Init()
-        {
-            SDK.SetWorking(true);
-            foreach (var folder in Explorer.GetSelectedFolders())
+            Program.IsWorking = true;
+            Parallel.ForEach(Program.Files, path =>
             {
-                CancellationToken.ThrowIfCancellationRequested();
-                Stopwatch timer = new Stopwatch();
-                timer.Start();
+                Stopwatch timer = Stopwatch.StartNew();
+                string filename = Path.GetFileNameWithoutExtension(path);
+                string pathFolder = path.Replace(".pak", "");
 
-                string folder_name = Path.GetFileName(folder);
-                string[] folder_xml = Directory.GetFiles(folder, "*.xml", SearchOption.AllDirectories);
-                string[] folder_html = Directory.GetFiles(folder, "*.html", SearchOption.AllDirectories);
+                if (!Directory.Exists(pathFolder))
+                    return;
 
-                Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypting} " + folder_name.ToUpper() + " Folder.");
+                string[] xmls = Directory.GetFiles(pathFolder, "*.xml", SearchOption.AllDirectories);
+                string[] htmls = Directory.GetFiles(pathFolder, "*.html", SearchOption.AllDirectories);
 
-                if (folder_xml.Length > 0)
-                {
-                    Parallel.ForEach(folder_xml, (xml) =>
-                    {
-                        CancellationToken.ThrowIfCancellationRequested();
-                        new XML(xml).Decode();
-                    });
-                }
-                if (folder_html.Length > 0)
-                {
-                    Parallel.ForEach(folder_html, (html) =>
-                    {
-                        CancellationToken.ThrowIfCancellationRequested();
-                        new HTML(html).Decode();
-                    });
-                }
+                Log.WriteLine(Level.Debug, $"Decrypting {filename}");
+                Parallel.ForEach(xmls, XML.Decode);
+                Parallel.ForEach(htmls, HTML.Decode);
 
                 timer.Stop();
-                Encdec.ConsoleInfo.LogWait(Level.Info, "{Decrypted} " + folder_name.ToUpper() + " Folder in " + timer.Elapsed.ToString("ss\\.ff") + "s.");
-            }
-            SDK.SetWorking(false);
-        }
-
-        /// <summary>
-        /// Dispose all resources.
-        /// </summary>
-        public void Dispose()
-        {
-            CancellationTokenSource?.Cancel();
-            CancellationTokenSource?.Dispose();
-            Task?.Dispose();
+                Log.WriteLine(Level.Info, $"Decrypted {filename} in {timer.Elapsed:ss\\.ff}s");
+            });
+            Program.IsWorking = false;
         }
     }
 }

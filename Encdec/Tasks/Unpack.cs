@@ -1,23 +1,23 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 using AION.Encdec.Formats;
 
 namespace AION.Encdec.Tasks
 {
     /// <summary>
-    /// Repack PAK files.
+    /// Unpack PAK files.
     /// </summary>
-    public static class Repack 
+    public static class Unpack
     {
         /// <summary>
-        /// Start the repack task.
+        /// Start the unpack task.
         /// </summary>
         public static void Run()
         {
             if (Program.IsWorking) return;
 
             Program.IsWorking = true;
-            Parallel.ForEach(Program.Files, PAK.Repack);
+            Parallel.ForEach(Program.Files, PAK.Unpack);
             Program.IsWorking = false;
         }
     }

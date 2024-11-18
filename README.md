@@ -5,9 +5,9 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/AION-Encdec?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/AION-Encdec)
 [![License](https://img.shields.io/github/license/Iswenzz/AION-Encdec?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/AION-Encdec/blob/master/LICENSE)
 
-This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some features this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
+![](https://i.imgur.com/0kAlsBZ.png)
 
-![](https://i.imgur.com/EuZQnZx.png)
+This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some features this application provides include decoding `.XML`, `.HTML`, and `.CFG` files, as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
 
 ## Features
 * Encode/Decode `.XML`, `.HTML`, and `.CFG` files.

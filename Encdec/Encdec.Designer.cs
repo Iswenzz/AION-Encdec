@@ -39,6 +39,7 @@
             SelectAllButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
             panel4 = new System.Windows.Forms.Panel();
             RefreshButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
+            ClearButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -226,6 +227,7 @@
             // panel4
             // 
             panel4.BackColor = System.Drawing.Color.Black;
+            panel4.Controls.Add(ClearButton);
             panel4.Controls.Add(SelectAllButton);
             panel4.Controls.Add(RefreshButton);
             panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -265,6 +267,37 @@
             RefreshButton.TextLayouts.Enabled = true;
             RefreshButton.Click += RefreshButton_Click;
             // 
+            // ClearButton
+            // 
+            ClearButton.Alpha.Enabled = true;
+            ClearButton.Animations.BackgroundImageHover = null;
+            ClearButton.Animations.ColorHover = System.Drawing.Color.Transparent;
+            ClearButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            ClearButton.Animations.Enabled = true;
+            ClearButton.Animations.TextColorHover = System.Drawing.Color.Silver;
+            ClearButton.BackColor = System.Drawing.Color.Black;
+            ClearButton.Border.Color = System.Drawing.Color.DodgerBlue;
+            ClearButton.Border.Enabled = true;
+            ClearButton.Border.Radius = new System.Drawing.Size(0, 0);
+            ClearButton.Border.Width = 4F;
+            ClearButton.Dock = System.Windows.Forms.DockStyle.Right;
+            ClearButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            ClearButton.ForeColor = System.Drawing.Color.Gainsboro;
+            ClearButton.Icon.Enabled = true;
+            ClearButton.Icon.IconImage = null;
+            ClearButton.Icon.IconSize = 0;
+            ClearButton.Layouts.Angle = 0;
+            ClearButton.Layouts.Enabled = true;
+            ClearButton.Location = new System.Drawing.Point(920, 0);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new System.Drawing.Size(81, 24);
+            ClearButton.TabIndex = 4;
+            ClearButton.Text = "Clear";
+            ClearButton.TextLayouts.Angle = 0;
+            ClearButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            ClearButton.TextLayouts.Enabled = true;
+            ClearButton.Click += ClearButton_Click;
+            // 
             // Encdec
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -297,6 +330,7 @@
         private System.Windows.Forms.Panel panel4;
         private IzUI.WinForms.UI.Controls.Inputs.Button DecodeButton;
         private IzUI.WinForms.UI.Controls.Inputs.Button RefreshButton;
+        private IzUI.WinForms.UI.Controls.Inputs.Button ClearButton;
     }
 }
 

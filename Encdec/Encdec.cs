@@ -105,6 +105,12 @@ namespace AION.Encdec
             RefreshList();
 
         /// <summary>
+        /// Clear console.
+        /// </summary>
+        private void ClearButton_Click(object sender, EventArgs e) =>
+            Info.Clear();
+
+        /// <summary>
         /// Refresh the input folder files.
         /// </summary>
         private void RefreshList()

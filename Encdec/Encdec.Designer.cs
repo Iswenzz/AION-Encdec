@@ -35,10 +35,10 @@
             UnpackButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
             panel2 = new System.Windows.Forms.Panel();
             ListBox = new System.Windows.Forms.CheckedListBox();
-            label1 = new System.Windows.Forms.Label();
             Info = new System.Windows.Forms.RichTextBox();
             SelectAllButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
             panel4 = new System.Windows.Forms.Panel();
+            RefreshButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -177,19 +177,6 @@
             ListBox.ThreeDCheckBoxes = true;
             ListBox.ItemCheck += ListBox_ItemCheck;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Black;
-            label1.Dock = System.Windows.Forms.DockStyle.Right;
-            label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            label1.ForeColor = System.Drawing.Color.DimGray;
-            label1.Location = new System.Drawing.Point(916, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(85, 21);
-            label1.TabIndex = 1;
-            label1.Text = "PAK Folder";
-            // 
             // Info
             // 
             Info.BackColor = System.Drawing.Color.Black;
@@ -220,19 +207,19 @@
             SelectAllButton.Border.Width = 4F;
             SelectAllButton.Dock = System.Windows.Forms.DockStyle.Left;
             SelectAllButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            SelectAllButton.ForeColor = System.Drawing.Color.Gray;
+            SelectAllButton.ForeColor = System.Drawing.Color.Gainsboro;
             SelectAllButton.Icon.Enabled = true;
             SelectAllButton.Icon.IconImage = null;
             SelectAllButton.Icon.IconSize = 0;
             SelectAllButton.Layouts.Angle = 0;
             SelectAllButton.Layouts.Enabled = true;
-            SelectAllButton.Location = new System.Drawing.Point(0, 0);
+            SelectAllButton.Location = new System.Drawing.Point(81, 0);
             SelectAllButton.Name = "SelectAllButton";
-            SelectAllButton.Size = new System.Drawing.Size(122, 24);
+            SelectAllButton.Size = new System.Drawing.Size(81, 24);
             SelectAllButton.TabIndex = 2;
             SelectAllButton.Text = "Select All";
             SelectAllButton.TextLayouts.Angle = 0;
-            SelectAllButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            SelectAllButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
             SelectAllButton.TextLayouts.Enabled = true;
             SelectAllButton.Click += SelectAllButton_Click;
             // 
@@ -240,12 +227,43 @@
             // 
             panel4.BackColor = System.Drawing.Color.Black;
             panel4.Controls.Add(SelectAllButton);
-            panel4.Controls.Add(label1);
+            panel4.Controls.Add(RefreshButton);
             panel4.Dock = System.Windows.Forms.DockStyle.Top;
             panel4.Location = new System.Drawing.Point(257, 130);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(1001, 24);
             panel4.TabIndex = 3;
+            // 
+            // RefreshButton
+            // 
+            RefreshButton.Alpha.Enabled = true;
+            RefreshButton.Animations.BackgroundImageHover = null;
+            RefreshButton.Animations.ColorHover = System.Drawing.Color.Transparent;
+            RefreshButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
+            RefreshButton.Animations.Enabled = true;
+            RefreshButton.Animations.TextColorHover = System.Drawing.Color.Silver;
+            RefreshButton.BackColor = System.Drawing.Color.Black;
+            RefreshButton.Border.Color = System.Drawing.Color.DodgerBlue;
+            RefreshButton.Border.Enabled = true;
+            RefreshButton.Border.Radius = new System.Drawing.Size(0, 0);
+            RefreshButton.Border.Width = 4F;
+            RefreshButton.Dock = System.Windows.Forms.DockStyle.Left;
+            RefreshButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            RefreshButton.ForeColor = System.Drawing.Color.Gainsboro;
+            RefreshButton.Icon.Enabled = true;
+            RefreshButton.Icon.IconImage = null;
+            RefreshButton.Icon.IconSize = 0;
+            RefreshButton.Layouts.Angle = 0;
+            RefreshButton.Layouts.Enabled = true;
+            RefreshButton.Location = new System.Drawing.Point(0, 0);
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Size = new System.Drawing.Size(81, 24);
+            RefreshButton.TabIndex = 3;
+            RefreshButton.Text = "Refresh";
+            RefreshButton.TextLayouts.Angle = 0;
+            RefreshButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            RefreshButton.TextLayouts.Enabled = true;
+            RefreshButton.Click += RefreshButton_Click;
             // 
             // Encdec
             // 
@@ -265,7 +283,6 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -275,11 +292,11 @@
         private IzUI.WinForms.UI.Controls.Inputs.Button UnpackButton;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.CheckedListBox ListBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox Info;
         private IzUI.WinForms.UI.Controls.Inputs.Button SelectAllButton;
         private System.Windows.Forms.Panel panel4;
         private IzUI.WinForms.UI.Controls.Inputs.Button DecodeButton;
+        private IzUI.WinForms.UI.Controls.Inputs.Button RefreshButton;
     }
 }
 

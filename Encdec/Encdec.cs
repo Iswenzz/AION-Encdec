@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using AION.Encdec.Tasks;
+using AION.Encdec.Utils;
+
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
-using AION.Encdec.Tasks;
-using AION.Encdec.Utils;
+using System.Windows.Forms;
 
 namespace AION.Encdec
 {
@@ -14,6 +14,8 @@ namespace AION.Encdec
     /// </summary>
     public partial class Encdec : Form
     {
+        public bool IsWorking = false;
+
         /// <summary>
         /// Initialize a new <see cref="Encdec"/> object.
         /// </summary>
@@ -21,37 +23,46 @@ namespace AION.Encdec
         {
             InitializeComponent();
             Log.TextBox = Info;
-
-            FileSystemWatcher watcher = new()
-            {
-                Path = Program.Arguments.Input,
-                Filter = "*.pak",
-                EnableRaisingEvents = true,
-                NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite
-            };
-            watcher.Created += RefreshList;
-            watcher.Deleted += RefreshList;
-            watcher.Renamed += RefreshList;
-            watcher.Changed += RefreshList;
         }
+
+        /// <summary>
+        /// Form load handler.
+        /// </summary>
+        private void Encdec_Load(object sender, EventArgs e) =>
+            RefreshList();
 
         /// <summary>
         /// Unpack button click handler.
         /// </summary>
-        private void UnpackButton_Click(object sender, EventArgs e) =>
-            Task.Run(Unpack.Run);
+        private async void UnpackButton_Click(object sender, EventArgs e)
+        {
+            if (IsWorking) return;
+            IsWorking = true;
+            await Task.Run(() => Unpack.Run(Program.Files));
+            IsWorking = false;
+        }
 
         /// <summary>
         /// Decode button click handler.
         /// </summary>
-        private void DecodeButton_Click(object sender, EventArgs e) =>
-            Task.Run(Decode.Run);
+        private async void DecodeButton_Click(object sender, EventArgs e)
+        {
+            if (IsWorking) return;
+            IsWorking = true;
+            await Task.Run(() => Decode.Run([.. Program.Files.Select(Program.GetPakFolder)]));
+            IsWorking = false;
+        }
 
         /// <summary>
         /// Repack button click handler.
         /// </summary>
-        private void RepackButton_Click(object sender, EventArgs e) =>
-            Task.Run(Repack.Run);
+        private async void RepackButton_Click(object sender, EventArgs e)
+        {
+            if (IsWorking) return;
+            IsWorking = true;
+            await Task.Run(() => Repack.Run([.. Program.Files.Select(Program.GetPakFolder)]));
+            IsWorking = false;
+        }
 
         /// <summary>
         /// Select / Deselect all pak files.
@@ -88,25 +99,24 @@ namespace AION.Encdec
         }
 
         /// <summary>
-        /// Form load handler.
+        /// Refresh button click.
         /// </summary>
-        private void Encdec_Load(object sender, EventArgs e) =>
-            RefreshList(sender, null);
+        private void RefreshButton_Click(object sender, EventArgs e) =>
+            RefreshList();
 
         /// <summary>
         /// Refresh the input folder files.
         /// </summary>
-        /// <returns></returns>
-        private void RefreshList(object sender, FileSystemEventArgs e)
+        private void RefreshList()
         {
             Program.Files = [];
-            string[] files = [.. Directory.GetFiles(Program.Arguments.Input, "*.pak")];
 
-            ListBox.Invoke(() =>
-            {
-                ListBox.Items.Clear();
-                ListBox.Items.AddRange(files.Select(Path.GetFileName).ToArray());
-            });
+            string[] files = [.. Directory.GetFiles(Program.Arguments.Input, "*.pak", SearchOption.AllDirectories)
+                .Select(file => Path.GetRelativePath(Program.Arguments.Input, file))];
+
+            ListBox.Items.Clear();
+            ListBox.Items.AddRange(files);
+            SelectAllButton.Text = "Select All";
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.IO;
 
 using CommandLine;
 
 using AION.Encdec.Tasks;
-using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace AION.Encdec
 {
@@ -16,8 +17,7 @@ namespace AION.Encdec
     public static class Program
     {
         public static Options Arguments { get; set; }
-        public static List<string> Files = [];
-        public static bool IsWorking = false;
+        public static List<string> Files { get; set; } = [];
 
         [DllImport("kernel32.dll")]
         static extern bool AttachConsole(int dwProcessId);
@@ -37,9 +37,6 @@ namespace AION.Encdec
             [Option('r', "repack", Required = false, HelpText = "Repack pak files at the specified output folder.")]
             public bool Repack { get; set; }
 
-            [Option('o', "output", Required = false, Default = "REPACK", HelpText = "The output folder path.")]
-            public string Output { get; set; } = "REPACK";
-
             [Option('i', "input", Required = false, Default = "PAK", HelpText = "The input folder path.")]
             public string Input { get; set; } = "PAK";
         }
@@ -56,25 +53,29 @@ namespace AION.Encdec
                 .WithNotParsed(_ => Arguments = new());
 
             Arguments.Input = Path.GetFullPath(Arguments.Input);
-            Arguments.Output = Path.GetFullPath(Arguments.Output);
-
             if (!Directory.Exists(Arguments.Input))
                 Directory.CreateDirectory(Arguments.Input);
-            if (!Directory.Exists(Arguments.Output))
-                Directory.CreateDirectory(Arguments.Output);
 
             if (args.Length > 0)
             {
-                Files = [.. Directory.GetFiles(Arguments.Input, "*.pak")];
+                Files = [.. Directory.GetFiles(Arguments.Input, "*.pak", SearchOption.AllDirectories)];
                 Console.WriteLine();
-                if (Arguments.Unpack) Unpack.Run();
-                if (Arguments.Decode) Decode.Run();
-                if (Arguments.Repack) Repack.Run();
+                if (Arguments.Unpack) Unpack.Run(Files);
+                if (Arguments.Decode) Decode.Run([.. Files.Select(GetPakFolder)]);
+                if (Arguments.Repack) Repack.Run([.. Files.Select(GetPakFolder)]);
                 SendKeys.SendWait("{ENTER}");
                 return;
             }
             ApplicationConfiguration.Initialize();
             Application.Run(new Encdec());
         }
+
+        /// <summary>
+        /// Get pak folder path.
+        /// </summary>
+        /// <param name="pak">The file path.</param>
+        /// <returns></returns>
+        public static string GetPakFolder(string pak) =>
+            pak.Replace(".pak", "");
     }
 }

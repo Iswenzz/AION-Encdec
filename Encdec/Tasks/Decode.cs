@@ -1,9 +1,10 @@
+using AION.Encdec.Formats;
+using AION.Encdec.Utils;
+
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-
-using AION.Encdec.Formats;
-using AION.Encdec.Utils;
 
 namespace AION.Encdec.Tasks
 {
@@ -15,31 +16,25 @@ namespace AION.Encdec.Tasks
         /// <summary>
         /// Start the unpack task.
         /// </summary>
-        public static void Run()
+        /// <param name="folders">The folders.</param>
+        public static void Run(List<string> folders)
         {
-            if (Program.IsWorking) return;
-
-            Program.IsWorking = true;
-            Parallel.ForEach(Program.Files, path =>
+            Parallel.ForEach(folders, folder =>
             {
+                if (!Directory.Exists(folder)) return;
+                string name = Path.GetFileName(folder);
+                Log.WriteLine(Level.Debug, $"Decrypting {name}");
+
+                string[] xmls = Directory.GetFiles(folder, "*.xml", SearchOption.AllDirectories);
+                string[] htmls = Directory.GetFiles(folder, "*.html", SearchOption.AllDirectories);
+
                 Stopwatch timer = Stopwatch.StartNew();
-                string filename = Path.GetFileNameWithoutExtension(path);
-                string pathFolder = path.Replace(".pak", "");
-
-                if (!Directory.Exists(pathFolder))
-                    return;
-
-                string[] xmls = Directory.GetFiles(pathFolder, "*.xml", SearchOption.AllDirectories);
-                string[] htmls = Directory.GetFiles(pathFolder, "*.html", SearchOption.AllDirectories);
-
-                Log.WriteLine(Level.Debug, $"Decrypting {filename}");
                 Parallel.ForEach(xmls, XML.Decode);
                 Parallel.ForEach(htmls, HTML.Decode);
-
                 timer.Stop();
-                Log.WriteLine(Level.Info, $"Decrypted {filename} in {timer.Elapsed:ss\\.ff}s");
+
+                Log.WriteLine(Level.Info, $"Decrypted {name} in {timer.Elapsed:ss\\.ff}s");
             });
-            Program.IsWorking = false;
         }
     }
 }

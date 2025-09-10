@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using AION.Encdec.Formats;
+using AION.Encdec.Utils;
 
-using AION.Encdec.Formats;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace AION.Encdec.Tasks
 {
@@ -12,13 +16,21 @@ namespace AION.Encdec.Tasks
         /// <summary>
         /// Start the repack task.
         /// </summary>
-        public static void Run()
+        /// <param name="folders">The folders.</param>
+        public static void Run(List<string> folders)
         {
-            if (Program.IsWorking) return;
+            Parallel.ForEach(folders, folder =>
+            {
+                if (!Directory.Exists(folder)) return;
+                string name = Path.GetFileName(folder);
+                Log.WriteLine(Level.Debug, $"Repacking {name}");
 
-            Program.IsWorking = true;
-            Parallel.ForEach(Program.Files, PAK.Repack);
-            Program.IsWorking = false;
+                Stopwatch timer = Stopwatch.StartNew();
+                PAK.Repack(folder);
+                timer.Stop();
+
+                Log.WriteLine(Level.Info, $"Repacked {name} in {timer.Elapsed:ss\\.ff}s");
+            });
         }
     }
 }

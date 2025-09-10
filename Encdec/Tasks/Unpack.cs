@@ -1,6 +1,10 @@
-using System.Threading.Tasks;
-
 using AION.Encdec.Formats;
+using AION.Encdec.Utils;
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace AION.Encdec.Tasks
 {
@@ -12,13 +16,21 @@ namespace AION.Encdec.Tasks
         /// <summary>
         /// Start the unpack task.
         /// </summary>
-        public static void Run()
+        /// <param name="paks">The paks files.</param>
+        public static void Run(List<string> paks)
         {
-            if (Program.IsWorking) return;
+            Parallel.ForEach(paks, pak =>
+            {
+                if (!File.Exists(pak)) return;
+                string name = Path.GetFileNameWithoutExtension(pak);
+                Log.WriteLine(Level.Debug, $"Extracting {name}");
 
-            Program.IsWorking = true;
-            Parallel.ForEach(Program.Files, PAK.Unpack);
-            Program.IsWorking = false;
+                Stopwatch timer = Stopwatch.StartNew();
+                PAK.Unpack(pak);
+                timer.Stop();
+
+                Log.WriteLine(Level.Info, $"Extracted {name} in {timer.Elapsed:ss\\.ff}s");
+            });
         }
     }
 }

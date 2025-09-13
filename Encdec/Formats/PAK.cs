@@ -15,7 +15,7 @@ namespace AION.Encdec.Formats
         /// </summary>
         /// <param name="path">The file path.</param>
         /// <param name="createFolder">Create a folder.</param>
-        public static void Unpack(string path, bool createFolder = true)
+        public static void Unpack(string path, bool createFolder)
         {
             string pathCurrent = Path.GetDirectoryName(path);
             string pathZip = path.Replace(".pak", ".zip");
@@ -25,7 +25,7 @@ namespace AION.Encdec.Formats
             Proc.Start(program, [path, pathZip]);
 
             program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
-            Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}", "*", "-r"]);
+            Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}"]);
             File.Delete(pathZip);
         }
 

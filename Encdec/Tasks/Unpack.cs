@@ -17,7 +17,8 @@ namespace AION.Encdec.Tasks
         /// Start the unpack task.
         /// </summary>
         /// <param name="paks">The paks files.</param>
-        public static void Run(List<string> paks)
+        /// <param name="createFolder">Create folders.</param>
+        public static void Run(List<string> paks, bool createFolder)
         {
             Parallel.ForEach(paks, pak =>
             {
@@ -26,7 +27,7 @@ namespace AION.Encdec.Tasks
                 Log.WriteLine(Level.Debug, $"Extracting {name}");
 
                 Stopwatch timer = Stopwatch.StartNew();
-                PAK.Unpack(pak);
+                PAK.Unpack(pak, createFolder);
                 timer.Stop();
 
                 Log.WriteLine(Level.Info, $"Extracted {name} in {timer.Elapsed:ss\\.ff}s");

@@ -39,6 +39,9 @@ namespace AION.Encdec
 
             [Option('i', "input", Required = false, Default = "PAK", HelpText = "The input folder path.")]
             public string Input { get; set; } = "PAK";
+
+            [Option('f', "folder", Required = false, HelpText = "Create a folder when unpacking a pak file.")]
+            public bool Folder { get; set; }
         }
 
         /// <summary>
@@ -60,7 +63,7 @@ namespace AION.Encdec
             {
                 Files = [.. Directory.GetFiles(Arguments.Input, "*.pak", SearchOption.AllDirectories)];
                 Console.WriteLine();
-                if (Arguments.Unpack) Unpack.Run(Files);
+                if (Arguments.Unpack) Unpack.Run(Files, Arguments.Folder);
                 if (Arguments.Decode) Decode.Run([.. Files.Select(GetPakFolder)]);
                 if (Arguments.Repack) Repack.Run([.. Files.Select(GetPakFolder)]);
                 SendKeys.SendWait("{ENTER}");

@@ -38,7 +38,7 @@ namespace AION.Encdec
         {
             if (IsWorking) return;
             IsWorking = true;
-            await Task.Run(() => Unpack.Run(Program.Files));
+            await Task.Run(() => Unpack.Run(Program.Files, true));
             IsWorking = false;
         }
 

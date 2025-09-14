@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using AION.Encdec.Utils;
+using System;
+using System.IO;
 using System.Windows.Forms;
-
-using AION.Encdec.Utils;
 
 namespace AION.Encdec.Formats
 {
@@ -18,18 +18,27 @@ namespace AION.Encdec.Formats
         {
             string filename = Path.GetFileName(path);
             string pathTmp = path.Replace(".html", "_tmp.html");
-            string program = Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe");
-            int exit = Proc.Start(program, ["-r", path, pathTmp]);
-            Level level = exit == 0 ? Level.Success : Level.Error;
-
-            if (File.Exists(pathTmp))
+            
+            try
             {
-                if (File.ReadAllBytes(pathTmp).Length > 0)
-                    File.Replace(pathTmp, path, null);
+                string program = Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe");
+                int exit = Proc.Start(program, ["-r", path, pathTmp]);
+                Level level = exit == 0 ? Level.Success : Level.Error;
 
-                File.Delete(pathTmp);
+                if (File.Exists(pathTmp))
+                {
+                    if (File.ReadAllBytes(pathTmp).Length > 0)
+                        File.Replace(pathTmp, path, null);
+
+                    if (File.Exists(pathTmp))
+                        File.Delete(pathTmp);
+                }
+                Log.WriteLine(level, filename);
             }
-            Log.WriteLine(level, filename);
+            catch (Exception e)
+            {
+                Log.WriteLine(Level.Error, e.Message);
+            }
         }
     }
 }

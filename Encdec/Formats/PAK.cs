@@ -1,7 +1,8 @@
+using AION.Encdec.Utils;
+using System;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Windows.Forms;
-
-using AION.Encdec.Utils;
 
 namespace AION.Encdec.Formats
 {
@@ -21,12 +22,21 @@ namespace AION.Encdec.Formats
             string pathZip = path.Replace(".pak", ".zip");
             string pathFolder = path.Replace(".pak", "");
 
-            string program = Path.Combine(Application.StartupPath, "bin", "pak2zip.exe");
-            Proc.Start(program, [path, pathZip]);
+            try
+            {
+                string program = Path.Combine(Application.StartupPath, "bin", "pak2zip.exe");
+                Proc.Start(program, [path, pathZip]);
 
-            program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
-            Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}"]);
-            File.Delete(pathZip);
+                program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
+                Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}"]);
+
+                if (File.Exists(pathZip))
+                    File.Delete(pathZip);
+            }
+            catch (Exception e)
+            {
+                Log.WriteLine(Level.Error, e.Message);
+            }
         }
 
         /// <summary>
@@ -39,12 +49,21 @@ namespace AION.Encdec.Formats
             string pathZip = path + ".zip";
             string pathPak = path + ".pak";
 
-            string program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
-            Proc.Start(program, ["a", "-tzip", pathZip, pathFolderContent]);
+            try
+            {
+                string program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
+                Proc.Start(program, ["a", "-tzip", pathZip, pathFolderContent]);
 
-            program = Path.Combine(Application.StartupPath, "bin", "AIONencdec.exe");
-            Proc.Start(program, ["-e", pathZip, pathPak]);
-            File.Delete(pathZip);
+                program = Path.Combine(Application.StartupPath, "bin", "AIONencdec.exe");
+                Proc.Start(program, ["-e", pathZip, pathPak]);
+
+                if (File.Exists(pathZip))
+                    File.Delete(pathZip);
+            } 
+            catch (Exception e)
+            {
+                Log.WriteLine(Level.Error, e.Message);
+            }
         }
     }
 }

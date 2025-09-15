@@ -7,7 +7,7 @@ using System.IO;
 using CommandLine;
 
 using AION.Encdec.Tasks;
-using System.Linq;
+using AION.Encdec.Utils;
 
 namespace AION.Encdec
 {
@@ -27,20 +27,23 @@ namespace AION.Encdec
         /// </summary>
         public sealed class Options
         {
-            [Option('u', "unpack", Required = false, HelpText = "Unpack pak files at the specified input folder.")]
+            [Option('u', "unpack", Required = false, HelpText = "Unpack files.")]
             public bool Unpack { get; set; }
 
-            [Option('d', "decode", Required = false, HelpText = "Decode pak files at the specified input folder.")]
+            [Option('p', "pakzip", Required = false, HelpText = "Unpack to zip.")]
+            public bool Pakzip { get; set; }
+
+            [Option('d', "decode", Required = false, HelpText = "Decode files.")]
             public bool Decode { get; set; }
 
-            [Option('r', "repack", Required = false, HelpText = "Repack pak files at the specified output folder.")]
+            [Option('r', "repack", Required = false, HelpText = "Repack folder.")]
             public bool Repack { get; set; }
 
             [Option('i', "input", Required = false, Default = "PAK", HelpText = "The input folder path.")]
-            public string Input { get; set; } = "PAK";
+            public string Input { get; set; }
 
-            [Option('f', "folder", Required = false, HelpText = "Create a folder when unpacking a pak file.")]
-            public bool Folder { get; set; }
+            [Option('c', "create-folder", Required = false, HelpText = "Create a folder when unpacking.")]
+            public bool CreateFolder { get; set; }
         }
 
         /// <summary>
@@ -54,6 +57,7 @@ namespace AION.Encdec
                 .WithParsed(options => Arguments = options)
                 .WithNotParsed(_ => Arguments = new());
 
+            if (string.IsNullOrEmpty(Arguments.Input)) return;
             Arguments.Input = Path.GetFullPath(Arguments.Input);
             if (!Directory.Exists(Arguments.Input))
                 Directory.CreateDirectory(Arguments.Input);
@@ -63,10 +67,10 @@ namespace AION.Encdec
                 List<string> folders = [Arguments.Input];
                 List<string> paks = [.. Directory.GetFiles(Arguments.Input, "*.pak", SearchOption.AllDirectories)];
                 Console.WriteLine();
-                if (Arguments.Unpack) Unpack.Run(paks, Arguments.Folder);
+                if (Arguments.Unpack) Unpack.Run(paks, Arguments.CreateFolder, true);
+                else if (Arguments.Pakzip) Unpack.Run(paks, Arguments.CreateFolder, false);
                 if (Arguments.Decode) Decode.Run(folders);
                 if (Arguments.Repack) Repack.Run(folders);
-                SendKeys.SendWait("{ENTER}");
                 return;
             }
             ApplicationConfiguration.Initialize();

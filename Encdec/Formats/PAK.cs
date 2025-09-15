@@ -16,7 +16,8 @@ namespace AION.Encdec.Formats
         /// </summary>
         /// <param name="path">The file path.</param>
         /// <param name="createFolder">Create a folder.</param>
-        public static void Unpack(string path, bool createFolder)
+        /// <param name="unzip">Unzip the archive.</param>
+        public static void Unpack(string path, bool createFolder, bool unzip)
         {
             try
             {
@@ -27,11 +28,14 @@ namespace AION.Encdec.Formats
                 string program = Path.Combine(Application.StartupPath, "bin", "pak2zip.exe");
                 Proc.Start(program, [path, pathZip]);
 
-                program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
-                Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}"]);
+                if (unzip)
+                {
+                    program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
+                    Proc.Start(program, ["x", pathZip, "-aos", $"-o{(createFolder ? pathFolder : pathCurrent)}"]);
 
-                if (File.Exists(pathZip))
-                    File.Delete(pathZip);
+                    if (File.Exists(pathZip))
+                        File.Delete(pathZip);
+                }
             }
             catch (Exception e)
             {

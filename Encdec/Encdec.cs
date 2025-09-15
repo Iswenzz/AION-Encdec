@@ -2,10 +2,12 @@
 using AION.Encdec.Utils;
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace AION.Encdec
 {
@@ -14,6 +16,10 @@ namespace AION.Encdec
     /// </summary>
     public partial class Encdec : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<string> Files { get; set; } = [];
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsWorking = false;
 
         /// <summary>
@@ -38,7 +44,7 @@ namespace AION.Encdec
         {
             if (IsWorking) return;
             IsWorking = true;
-            await Task.Run(() => Unpack.Run(Program.Files, true));
+            await Task.Run(() => Unpack.Run(Files, true));
             IsWorking = false;
         }
 
@@ -49,7 +55,7 @@ namespace AION.Encdec
         {
             if (IsWorking) return;
             IsWorking = true;
-            await Task.Run(() => Decode.Run([.. Program.Files.Select(Program.GetPakFolder)]));
+            await Task.Run(() => Decode.Run([.. Files.Select(GetPakFolder)]));
             IsWorking = false;
         }
 
@@ -60,7 +66,7 @@ namespace AION.Encdec
         {
             if (IsWorking) return;
             IsWorking = true;
-            await Task.Run(() => Repack.Run([.. Program.Files.Select(Program.GetPakFolder)]));
+            await Task.Run(() => Repack.Run([.. Files.Select(GetPakFolder)]));
             IsWorking = false;
         }
 
@@ -93,9 +99,9 @@ namespace AION.Encdec
             string file = Path.Combine(Program.Arguments.Input, ListBox.Items[e.Index].ToString());
 
             if (e.NewValue == CheckState.Checked)
-                Program.Files.Add(file);
+                Files.Add(file);
             else
-                Program.Files.Remove(file);
+                Files.Remove(file);
         }
 
         /// <summary>
@@ -115,7 +121,7 @@ namespace AION.Encdec
         /// </summary>
         private void RefreshList()
         {
-            Program.Files = [];
+            Files = [];
 
             string[] files = [.. Directory.GetFiles(Program.Arguments.Input, "*.pak", SearchOption.AllDirectories)
                 .Select(file => Path.GetRelativePath(Program.Arguments.Input, file))];
@@ -124,5 +130,13 @@ namespace AION.Encdec
             ListBox.Items.AddRange(files);
             SelectAllButton.Text = "Select All";
         }
+
+        /// <summary>
+        /// Get pak folder path.
+        /// </summary>
+        /// <param name="pak">The file path.</param>
+        /// <returns></returns>
+        public string GetPakFolder(string pak) =>
+            pak.Replace(".pak", "");
     }
 }

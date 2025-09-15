@@ -17,7 +17,6 @@ namespace AION.Encdec
     public static class Program
     {
         public static Options Arguments { get; set; }
-        public static List<string> Files { get; set; } = [];
 
         [DllImport("kernel32.dll")]
         static extern bool AttachConsole(int dwProcessId);
@@ -61,24 +60,17 @@ namespace AION.Encdec
 
             if (args.Length > 0)
             {
-                Files = [.. Directory.GetFiles(Arguments.Input, "*.pak", SearchOption.AllDirectories)];
+                List<string> folders = [Arguments.Input];
+                List<string> paks = [.. Directory.GetFiles(Arguments.Input, "*.pak", SearchOption.AllDirectories)];
                 Console.WriteLine();
-                if (Arguments.Unpack) Unpack.Run(Files, Arguments.Folder);
-                if (Arguments.Decode) Decode.Run([.. Files.Select(GetPakFolder)]);
-                if (Arguments.Repack) Repack.Run([.. Files.Select(GetPakFolder)]);
+                if (Arguments.Unpack) Unpack.Run(paks, Arguments.Folder);
+                if (Arguments.Decode) Decode.Run(folders);
+                if (Arguments.Repack) Repack.Run(folders);
                 SendKeys.SendWait("{ENTER}");
                 return;
             }
             ApplicationConfiguration.Initialize();
             Application.Run(new Encdec());
         }
-
-        /// <summary>
-        /// Get pak folder path.
-        /// </summary>
-        /// <param name="pak">The file path.</param>
-        /// <returns></returns>
-        public static string GetPakFolder(string pak) =>
-            pak.Replace(".pak", "");
     }
 }

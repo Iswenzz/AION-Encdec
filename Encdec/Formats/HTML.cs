@@ -23,7 +23,7 @@ namespace AION.Encdec.Formats
             {
                 string program = Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe");
                 int exit = Proc.Start(program, ["-r", path, pathTmp]);
-                Level level = exit == 0 ? Level.Success : Level.Error;
+                Level level = exit == -1 ? Level.Skipped : exit == 0 ? Level.Success : Level.Error;
 
                 if (File.Exists(pathTmp))
                 {

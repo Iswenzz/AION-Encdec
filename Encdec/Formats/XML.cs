@@ -29,7 +29,7 @@ namespace AION.Encdec.Formats
                 {
                     program = Path.Combine(Application.StartupPath, "bin", "xml.exe");
                     exit = Proc.Start(program, [path, pathTmp]);
-                    level = exit == 0 ? Level.Success : Level.Error;
+                    level = exit == -1 ? Level.Skipped : exit == 0 ? Level.Success : Level.Error;
                 }
                 if (File.Exists(pathTmp))
                 {

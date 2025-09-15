@@ -1,6 +1,6 @@
 using AION.Encdec.Utils;
+
 using System;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Windows.Forms;
 
@@ -18,12 +18,12 @@ namespace AION.Encdec.Formats
         /// <param name="createFolder">Create a folder.</param>
         public static void Unpack(string path, bool createFolder)
         {
-            string pathCurrent = Path.GetDirectoryName(path);
-            string pathZip = path.Replace(".pak", ".zip");
-            string pathFolder = path.Replace(".pak", "");
-
             try
             {
+                string pathCurrent = Path.GetDirectoryName(path);
+                string pathZip = path.Replace(".pak", ".zip");
+                string pathFolder = path.Replace(".pak", "");
+
                 string program = Path.Combine(Application.StartupPath, "bin", "pak2zip.exe");
                 Proc.Start(program, [path, pathZip]);
 
@@ -45,12 +45,12 @@ namespace AION.Encdec.Formats
         /// <param name="path">The folder path.</param>
         public static void Repack(string path)
         {
-            string pathFolderContent = Path.Combine(path, "*");
-            string pathZip = path + ".zip";
-            string pathPak = path + ".pak";
-
             try
             {
+                string pathFolderContent = Path.Combine(path, "*");
+                string pathZip = path + ".zip";
+                string pathPak = path + ".pak";
+
                 string program = Path.Combine(Application.StartupPath, "bin", "7z.exe");
                 Proc.Start(program, ["a", "-tzip", pathZip, pathFolderContent]);
 

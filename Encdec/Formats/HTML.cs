@@ -1,4 +1,5 @@
 ﻿using AION.Encdec.Utils;
+
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -16,11 +17,9 @@ namespace AION.Encdec.Formats
         /// <param name="path">The file path.</param>
         public static void Decode(string path)
         {
-            string filename = Path.GetFileName(path);
-            string pathTmp = path.Replace(".html", "_tmp.html");
-            
             try
             {
+                string pathTmp = path.Replace(".html", "_tmp.html");
                 string program = Path.Combine(Application.StartupPath, "bin", "AIONdisasm.exe");
                 int exit = Proc.Start(program, ["-r", path, pathTmp]);
                 Level level = exit == -1 ? Level.Skipped : exit == 0 ? Level.Success : Level.Error;
@@ -33,7 +32,7 @@ namespace AION.Encdec.Formats
                     if (File.Exists(pathTmp))
                         File.Delete(pathTmp);
                 }
-                Log.WriteLine(level, filename);
+                Log.WriteLine(level, Path.GetRelativePath(Program.Arguments.Input, path));
             }
             catch (Exception e)
             {

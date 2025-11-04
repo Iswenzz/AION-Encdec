@@ -6,11 +6,11 @@
 
 ![](https://i.imgur.com/0kAlsBZ.png)
 
-This program serves as both a Graphical User Interface and Command Line Interface for roxan & M. Soltys' command line applications. Some features this application provides include decoding `.XML`, `.HTML`. as well as un-packing and re-packing `.PAK` files. Usage information and miscellaneous details can be found at the bottom of this document.
+A dual-interface tool with both graphical and command-line interfaces for working with AION game files. Built on top of roxan & M. Soltys' command line applications, this program allows you to extract, modify, and repack game assets including `.PAK` archives, `.XML`, and `.HTML` files.
 
 ## Features
-* Decode `.XML`, `.HTML`.
 * Un-pack and re-pack `.PAK` files.
+* Decode `.XML`, `.HTML`.
 * Graphical User Interface
 * Command Line Interface
 

@@ -9,12 +9,11 @@
   <PropertyGroup>
     <ApplicationIcon>Resources/icon.ico</ApplicationIcon>
     <Copyright>Iswenzz (c) 2025</Copyright>
-    <Version>1.4</Version>
-    <AssemblyVersion>1.4</AssemblyVersion>
-    <FileVersion>1.4</FileVersion>
+    <Version>1.5</Version>
+    <AssemblyVersion>1.5</AssemblyVersion>
+    <FileVersion>1.5</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="IzUI.WinForms" Version="1.2.0" />
   </ItemGroup>
 </Project>

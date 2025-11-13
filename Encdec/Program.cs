@@ -7,7 +7,6 @@ using System.IO;
 using CommandLine;
 
 using AION.Encdec.Tasks;
-using AION.Encdec.Utils;
 
 namespace AION.Encdec
 {

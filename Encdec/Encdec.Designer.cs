@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Encdec));
             panel1 = new System.Windows.Forms.Panel();
-            RepackButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
-            DecodeButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
-            UnpackButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
+            RepackButton = new System.Windows.Forms.Button();
+            DecodeButton = new System.Windows.Forms.Button();
+            UnpackButton = new System.Windows.Forms.Button();
             panel2 = new System.Windows.Forms.Panel();
             ListBox = new System.Windows.Forms.CheckedListBox();
             Info = new System.Windows.Forms.RichTextBox();
-            SelectAllButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
+            SelectAllButton = new System.Windows.Forms.Button();
             panel4 = new System.Windows.Forms.Panel();
-            RefreshButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
-            ClearButton = new IzUI.WinForms.UI.Controls.Inputs.Button();
+            ClearButton = new System.Windows.Forms.Button();
+            RefreshButton = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -58,95 +58,56 @@
             // 
             // RepackButton
             // 
-            RepackButton.Alpha.Enabled = true;
-            RepackButton.Animations.BackgroundImageHover = null;
-            RepackButton.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
-            RepackButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            RepackButton.Animations.Enabled = true;
-            RepackButton.Animations.TextColorHover = System.Drawing.Color.Empty;
             RepackButton.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            RepackButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            RepackButton.Border.Enabled = true;
-            RepackButton.Border.Radius = new System.Drawing.Size(0, 0);
-            RepackButton.Border.Width = 4F;
+            RepackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             RepackButton.Dock = System.Windows.Forms.DockStyle.Top;
+            RepackButton.FlatAppearance.BorderSize = 0;
+            RepackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            RepackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             RepackButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             RepackButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            RepackButton.Icon.Enabled = true;
-            RepackButton.Icon.IconImage = null;
-            RepackButton.Icon.IconSize = 0;
-            RepackButton.Layouts.Angle = 0;
-            RepackButton.Layouts.Enabled = true;
             RepackButton.Location = new System.Drawing.Point(0, 130);
             RepackButton.Name = "RepackButton";
             RepackButton.Size = new System.Drawing.Size(257, 65);
             RepackButton.TabIndex = 2;
             RepackButton.Text = "Repack";
-            RepackButton.TextLayouts.Angle = 0;
-            RepackButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            RepackButton.TextLayouts.Enabled = true;
+            RepackButton.UseVisualStyleBackColor = false;
             RepackButton.Click += RepackButton_Click;
             // 
             // DecodeButton
             // 
-            DecodeButton.Alpha.Enabled = true;
-            DecodeButton.Animations.BackgroundImageHover = null;
-            DecodeButton.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
-            DecodeButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            DecodeButton.Animations.Enabled = true;
-            DecodeButton.Animations.TextColorHover = System.Drawing.Color.Empty;
             DecodeButton.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            DecodeButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            DecodeButton.Border.Enabled = true;
-            DecodeButton.Border.Radius = new System.Drawing.Size(0, 0);
-            DecodeButton.Border.Width = 4F;
+            DecodeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             DecodeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            DecodeButton.FlatAppearance.BorderSize = 0;
+            DecodeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            DecodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             DecodeButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             DecodeButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            DecodeButton.Icon.Enabled = true;
-            DecodeButton.Icon.IconImage = null;
-            DecodeButton.Icon.IconSize = 0;
-            DecodeButton.Layouts.Angle = 0;
-            DecodeButton.Layouts.Enabled = true;
             DecodeButton.Location = new System.Drawing.Point(0, 65);
             DecodeButton.Name = "DecodeButton";
             DecodeButton.Size = new System.Drawing.Size(257, 65);
             DecodeButton.TabIndex = 3;
             DecodeButton.Text = "Decode";
-            DecodeButton.TextLayouts.Angle = 0;
-            DecodeButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            DecodeButton.TextLayouts.Enabled = true;
+            DecodeButton.UseVisualStyleBackColor = false;
             DecodeButton.Click += DecodeButton_Click;
             // 
             // UnpackButton
             // 
-            UnpackButton.Alpha.Enabled = true;
-            UnpackButton.Animations.BackgroundImageHover = null;
-            UnpackButton.Animations.ColorHover = System.Drawing.Color.RoyalBlue;
-            UnpackButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            UnpackButton.Animations.Enabled = true;
-            UnpackButton.Animations.TextColorHover = System.Drawing.Color.Empty;
             UnpackButton.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            UnpackButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            UnpackButton.Border.Enabled = true;
-            UnpackButton.Border.Radius = new System.Drawing.Size(0, 0);
-            UnpackButton.Border.Width = 4F;
+            UnpackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             UnpackButton.Dock = System.Windows.Forms.DockStyle.Top;
+            UnpackButton.FlatAppearance.BorderSize = 0;
+            UnpackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            UnpackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             UnpackButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             UnpackButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            UnpackButton.Icon.Enabled = true;
-            UnpackButton.Icon.IconImage = null;
-            UnpackButton.Icon.IconSize = 0;
-            UnpackButton.Layouts.Angle = 0;
-            UnpackButton.Layouts.Enabled = true;
             UnpackButton.Location = new System.Drawing.Point(0, 0);
             UnpackButton.Name = "UnpackButton";
             UnpackButton.Size = new System.Drawing.Size(257, 65);
             UnpackButton.TabIndex = 0;
             UnpackButton.Text = "Extract";
-            UnpackButton.TextLayouts.Angle = 0;
-            UnpackButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            UnpackButton.TextLayouts.Enabled = true;
+            UnpackButton.UseVisualStyleBackColor = false;
             UnpackButton.Click += UnpackButton_Click;
             // 
             // panel2
@@ -195,33 +156,19 @@
             // 
             // SelectAllButton
             // 
-            SelectAllButton.Alpha.Enabled = true;
-            SelectAllButton.Animations.BackgroundImageHover = null;
-            SelectAllButton.Animations.ColorHover = System.Drawing.Color.Transparent;
-            SelectAllButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            SelectAllButton.Animations.Enabled = true;
-            SelectAllButton.Animations.TextColorHover = System.Drawing.Color.Silver;
             SelectAllButton.BackColor = System.Drawing.Color.Black;
-            SelectAllButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            SelectAllButton.Border.Enabled = true;
-            SelectAllButton.Border.Radius = new System.Drawing.Size(0, 0);
-            SelectAllButton.Border.Width = 4F;
+            SelectAllButton.Cursor = System.Windows.Forms.Cursors.Hand;
             SelectAllButton.Dock = System.Windows.Forms.DockStyle.Left;
+            SelectAllButton.FlatAppearance.BorderSize = 0;
+            SelectAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SelectAllButton.Font = new System.Drawing.Font("Segoe UI", 8F);
             SelectAllButton.ForeColor = System.Drawing.Color.Gainsboro;
-            SelectAllButton.Icon.Enabled = true;
-            SelectAllButton.Icon.IconImage = null;
-            SelectAllButton.Icon.IconSize = 0;
-            SelectAllButton.Layouts.Angle = 0;
-            SelectAllButton.Layouts.Enabled = true;
             SelectAllButton.Location = new System.Drawing.Point(81, 0);
             SelectAllButton.Name = "SelectAllButton";
             SelectAllButton.Size = new System.Drawing.Size(81, 24);
             SelectAllButton.TabIndex = 2;
             SelectAllButton.Text = "Select All";
-            SelectAllButton.TextLayouts.Angle = 0;
-            SelectAllButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            SelectAllButton.TextLayouts.Enabled = true;
+            SelectAllButton.UseVisualStyleBackColor = false;
             SelectAllButton.Click += SelectAllButton_Click;
             // 
             // panel4
@@ -236,67 +183,39 @@
             panel4.Size = new System.Drawing.Size(1001, 24);
             panel4.TabIndex = 3;
             // 
-            // RefreshButton
-            // 
-            RefreshButton.Alpha.Enabled = true;
-            RefreshButton.Animations.BackgroundImageHover = null;
-            RefreshButton.Animations.ColorHover = System.Drawing.Color.Transparent;
-            RefreshButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            RefreshButton.Animations.Enabled = true;
-            RefreshButton.Animations.TextColorHover = System.Drawing.Color.Silver;
-            RefreshButton.BackColor = System.Drawing.Color.Black;
-            RefreshButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            RefreshButton.Border.Enabled = true;
-            RefreshButton.Border.Radius = new System.Drawing.Size(0, 0);
-            RefreshButton.Border.Width = 4F;
-            RefreshButton.Dock = System.Windows.Forms.DockStyle.Left;
-            RefreshButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            RefreshButton.ForeColor = System.Drawing.Color.Gainsboro;
-            RefreshButton.Icon.Enabled = true;
-            RefreshButton.Icon.IconImage = null;
-            RefreshButton.Icon.IconSize = 0;
-            RefreshButton.Layouts.Angle = 0;
-            RefreshButton.Layouts.Enabled = true;
-            RefreshButton.Location = new System.Drawing.Point(0, 0);
-            RefreshButton.Name = "RefreshButton";
-            RefreshButton.Size = new System.Drawing.Size(81, 24);
-            RefreshButton.TabIndex = 3;
-            RefreshButton.Text = "Refresh";
-            RefreshButton.TextLayouts.Angle = 0;
-            RefreshButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            RefreshButton.TextLayouts.Enabled = true;
-            RefreshButton.Click += RefreshButton_Click;
-            // 
             // ClearButton
             // 
-            ClearButton.Alpha.Enabled = true;
-            ClearButton.Animations.BackgroundImageHover = null;
-            ClearButton.Animations.ColorHover = System.Drawing.Color.Transparent;
-            ClearButton.Animations.CursorHover = System.Windows.Forms.Cursors.Hand;
-            ClearButton.Animations.Enabled = true;
-            ClearButton.Animations.TextColorHover = System.Drawing.Color.Silver;
             ClearButton.BackColor = System.Drawing.Color.Black;
-            ClearButton.Border.Color = System.Drawing.Color.DodgerBlue;
-            ClearButton.Border.Enabled = true;
-            ClearButton.Border.Radius = new System.Drawing.Size(0, 0);
-            ClearButton.Border.Width = 4F;
+            ClearButton.Cursor = System.Windows.Forms.Cursors.Hand;
             ClearButton.Dock = System.Windows.Forms.DockStyle.Right;
+            ClearButton.FlatAppearance.BorderSize = 0;
+            ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             ClearButton.Font = new System.Drawing.Font("Segoe UI", 8F);
             ClearButton.ForeColor = System.Drawing.Color.Gainsboro;
-            ClearButton.Icon.Enabled = true;
-            ClearButton.Icon.IconImage = null;
-            ClearButton.Icon.IconSize = 0;
-            ClearButton.Layouts.Angle = 0;
-            ClearButton.Layouts.Enabled = true;
             ClearButton.Location = new System.Drawing.Point(920, 0);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new System.Drawing.Size(81, 24);
             ClearButton.TabIndex = 4;
             ClearButton.Text = "Clear";
-            ClearButton.TextLayouts.Angle = 0;
-            ClearButton.TextLayouts.ContentAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            ClearButton.TextLayouts.Enabled = true;
+            ClearButton.UseVisualStyleBackColor = false;
             ClearButton.Click += ClearButton_Click;
+            // 
+            // RefreshButton
+            // 
+            RefreshButton.BackColor = System.Drawing.Color.Black;
+            RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            RefreshButton.Dock = System.Windows.Forms.DockStyle.Left;
+            RefreshButton.FlatAppearance.BorderSize = 0;
+            RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            RefreshButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            RefreshButton.ForeColor = System.Drawing.Color.Gainsboro;
+            RefreshButton.Location = new System.Drawing.Point(0, 0);
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Size = new System.Drawing.Size(81, 24);
+            RefreshButton.TabIndex = 3;
+            RefreshButton.Text = "Refresh";
+            RefreshButton.UseVisualStyleBackColor = false;
+            RefreshButton.Click += RefreshButton_Click;
             // 
             // Encdec
             // 
@@ -321,16 +240,16 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private IzUI.WinForms.UI.Controls.Inputs.Button RepackButton;
-        private IzUI.WinForms.UI.Controls.Inputs.Button UnpackButton;
+        private System.Windows.Forms.Button RepackButton;
+        private System.Windows.Forms.Button UnpackButton;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.CheckedListBox ListBox;
         private System.Windows.Forms.RichTextBox Info;
-        private IzUI.WinForms.UI.Controls.Inputs.Button SelectAllButton;
+        private System.Windows.Forms.Button SelectAllButton;
         private System.Windows.Forms.Panel panel4;
-        private IzUI.WinForms.UI.Controls.Inputs.Button DecodeButton;
-        private IzUI.WinForms.UI.Controls.Inputs.Button RefreshButton;
-        private IzUI.WinForms.UI.Controls.Inputs.Button ClearButton;
+        private System.Windows.Forms.Button DecodeButton;
+        private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 

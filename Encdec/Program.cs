@@ -10,9 +10,6 @@ using AION.Encdec.Tasks;
 
 namespace AION.Encdec
 {
-    /// <summary>
-    /// Program class.
-    /// </summary>
     public static class Program
     {
         public static Options Arguments { get; set; }
@@ -23,9 +20,6 @@ namespace AION.Encdec
         [DllImport("kernel32.dll")]
         private static extern bool FreeConsole();
 
-        /// <summary>
-        /// Command line arguments.
-        /// </summary>
         public sealed class Options
         {
             [Option('u', "unpack", HelpText = "Unpack files.")]
@@ -47,9 +41,6 @@ namespace AION.Encdec
             public bool CreateFolder { get; set; }
         }
 
-        /// <summary>
-        /// The main entry point of the application.
-        /// </summary>
         [STAThread]
         public static void Main(string[] args)
         {

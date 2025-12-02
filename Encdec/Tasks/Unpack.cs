@@ -8,17 +8,8 @@ using System.Threading.Tasks;
 
 namespace AION.Encdec.Tasks
 {
-    /// <summary>
-    /// Unpack PAK files.
-    /// </summary>
     public static class Unpack
     {
-        /// <summary>
-        /// Start the unpack task.
-        /// </summary>
-        /// <param name="paks">The paks files.</param>
-        /// <param name="createFolder">Create folders.</param>
-        /// <param name="unzip">Unzip the archive.</param>
         public static void Run(List<string> paks, bool createFolder, bool unzip)
         {
             Parallel.ForEach(paks, pak =>

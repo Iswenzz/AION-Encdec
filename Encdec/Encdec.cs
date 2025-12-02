@@ -11,9 +11,6 @@ using System.ComponentModel;
 
 namespace AION.Encdec
 {
-    /// <summary>
-    /// Main Graphical User Interface.
-    /// </summary>
     public partial class Encdec : Form
     {
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -22,24 +19,15 @@ namespace AION.Encdec
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsWorking = false;
 
-        /// <summary>
-        /// Initialize a new <see cref="Encdec"/> object.
-        /// </summary>
         public Encdec()
         {
             InitializeComponent();
             Log.TextBox = Info;
         }
 
-        /// <summary>
-        /// Form load handler.
-        /// </summary>
         private void Encdec_Load(object sender, EventArgs e) =>
             RefreshList();
 
-        /// <summary>
-        /// Unpack button click handler.
-        /// </summary>
         private async void UnpackButton_Click(object sender, EventArgs e)
         {
             if (IsWorking) return;
@@ -48,9 +36,6 @@ namespace AION.Encdec
             IsWorking = false;
         }
 
-        /// <summary>
-        /// Decode button click handler.
-        /// </summary>
         private async void DecodeButton_Click(object sender, EventArgs e)
         {
             if (IsWorking) return;
@@ -59,9 +44,6 @@ namespace AION.Encdec
             IsWorking = false;
         }
 
-        /// <summary>
-        /// Repack button click handler.
-        /// </summary>
         private async void RepackButton_Click(object sender, EventArgs e)
         {
             if (IsWorking) return;
@@ -70,9 +52,6 @@ namespace AION.Encdec
             IsWorking = false;
         }
 
-        /// <summary>
-        /// Select / Deselect all pak files.
-        /// </summary>
         private void SelectAllButton_Click(object sender, EventArgs e)
         {
             switch (SelectAllButton.Text)
@@ -91,9 +70,6 @@ namespace AION.Encdec
             }
         }
 
-        /// <summary>
-        /// List box check handler.
-        /// </summary>
         private void ListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             string file = Path.Combine(Program.Arguments.Input, ListBox.Items[e.Index].ToString());
@@ -104,21 +80,12 @@ namespace AION.Encdec
                 Files.Remove(file);
         }
 
-        /// <summary>
-        /// Refresh button click.
-        /// </summary>
         private void RefreshButton_Click(object sender, EventArgs e) =>
             RefreshList();
 
-        /// <summary>
-        /// Clear console.
-        /// </summary>
         private void ClearButton_Click(object sender, EventArgs e) =>
             Info.Clear();
 
-        /// <summary>
-        /// Refresh the input folder files.
-        /// </summary>
         private void RefreshList()
         {
             Files = [];
@@ -131,11 +98,6 @@ namespace AION.Encdec
             SelectAllButton.Text = "Select All";
         }
 
-        /// <summary>
-        /// Get pak folder path.
-        /// </summary>
-        /// <param name="pak">The file path.</param>
-        /// <returns></returns>
         public string GetPakFolder(string pak) =>
             pak.Replace(".pak", "");
     }

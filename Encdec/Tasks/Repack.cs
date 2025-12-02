@@ -8,15 +8,8 @@ using System.Threading.Tasks;
 
 namespace AION.Encdec.Tasks
 {
-    /// <summary>
-    /// Repack PAK files.
-    /// </summary>
     public static class Repack 
     {
-        /// <summary>
-        /// Start the repack task.
-        /// </summary>
-        /// <param name="folders">The folders.</param>
         public static void Run(List<string> folders)
         {
             Parallel.ForEach(folders, folder =>

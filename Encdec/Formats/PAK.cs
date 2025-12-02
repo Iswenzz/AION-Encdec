@@ -6,17 +6,8 @@ using System.Windows.Forms;
 
 namespace AION.Encdec.Formats
 {
-    /// <summary>
-    /// PAK file class.
-    /// </summary>
     public static class PAK
     {
-        /// <summary>
-        /// Unpack the PAK file.
-        /// </summary>
-        /// <param name="path">The file path.</param>
-        /// <param name="createFolder">Create a folder.</param>
-        /// <param name="unzip">Unzip the archive.</param>
         public static void Unpack(string path, bool createFolder, bool unzip)
         {
             try
@@ -43,10 +34,6 @@ namespace AION.Encdec.Formats
             }
         }
 
-        /// <summary>
-        /// Repack the PAK file.
-        /// </summary>
-        /// <param name="path">The folder path.</param>
         public static void Repack(string path)
         {
             try

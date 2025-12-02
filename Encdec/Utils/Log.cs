@@ -4,9 +4,6 @@ using System.Windows.Forms;
 
 namespace AION.Encdec.Utils
 {
-    /// <summary>
-    /// Console level.
-    /// </summary>
     public enum Level
     {
         Debug,
@@ -17,18 +14,10 @@ namespace AION.Encdec.Utils
         Skipped
     }
 
-    /// <summary>
-    /// Log class.
-    /// </summary>
     public static class Log
     {
         public static RichTextBox TextBox { get; set; }
 
-        /// <summary>
-        /// Write line to the console and GUI.
-        /// </summary>
-        /// <param name="level">The message level.</param>
-        /// <param name="message">The message.</param>
         public static void WriteLine(Level level = Level.Debug, string message = "")
         {
             Console.ForegroundColor = GetConsoleColor(level);
@@ -45,11 +34,6 @@ namespace AION.Encdec.Utils
             });
         }
 
-        /// <summary>
-        /// Get the color.
-        /// </summary>
-        /// <param name="level">The message level.</param>
-        /// <returns></returns>
         private static Color GetColor(Level level)
         {
             return level switch
@@ -64,11 +48,6 @@ namespace AION.Encdec.Utils
             };
         }
 
-        /// <summary>
-        /// Get the console color.
-        /// </summary>
-        /// <param name="level">The message level.</param>
-        /// <returns></returns>
         private static ConsoleColor GetConsoleColor(Level level)
         {
             return level switch

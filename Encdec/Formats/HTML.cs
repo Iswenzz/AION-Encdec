@@ -6,15 +6,8 @@ using System.Windows.Forms;
 
 namespace AION.Encdec.Formats
 {
-    /// <summary>
-    /// HTML file class.
-    /// </summary>
     public static class HTML
     {
-        /// <summary>
-        /// Decode the HTML file.
-        /// </summary>
-        /// <param name="path">The file path.</param>
         public static void Decode(string path)
         {
             try

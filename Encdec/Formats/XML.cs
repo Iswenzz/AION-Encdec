@@ -6,15 +6,8 @@ using System.Windows.Forms;
 
 namespace AION.Encdec.Formats
 {
-    /// <summary>
-    /// XML file class.
-    /// </summary>
     public static class XML
     {
-        /// <summary>
-        /// Decode the XML file.
-        /// </summary>
-        /// <param name="path">The file path.</param>
         public static void Decode(string path)
         {
             try
